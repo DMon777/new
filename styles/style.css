@@ -91,15 +91,15 @@ ul.main_menu li{
     padding-left:0;
 }
 
- ul.inner_menu{
-     display: none;
- }
+ul.main_menu>li a{
+    padding-bottom:19px;
+}
 
 ul.inner_menu{
     background: linear-gradient(180deg, rgba(223,221,225,1) 0, rgba(125,124,125,1) 100%);
     border-radius: 0 0 5px 5px;
-    margin-top: 20px;
-    position: absolute;z-index: 10;
+    padding-top: 7px;
+    position: absolute;z-index: 10;display:none;
 }
 
  ul.inner_menu li{
