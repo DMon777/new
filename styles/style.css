@@ -71,6 +71,19 @@ header > img{
     margin:0 auto;
 }
 
+
+
+/*  если пользователь авторизован */
+
+#authorized{
+    position:absolute;right:20px;bottom:20px;width:280px;height:145px;
+}
+#authorized p,#authorized a{
+    color:#fff;font-size:18px;font-family:"Comfortaa";text-align: center;
+}
+
+
+
 /*   menu    */
 
 nav{
@@ -143,22 +156,26 @@ ul.inner_menu li:last-child a{
     position:relative;
 }
 /*   end menu    */
+/*   content    */
+
+
+
 main{
     width:67%;float:left;margin-top:25px;
 }
 
-main article{
+main.index_content article{
     position:relative;margin-bottom:20px;width:63%;float:right;
 }
 
-main .article_image{
+main.index_content .article_image{
     float:left;margin-right:0;width:35%;height:250px;
 }
-main .article_image img{
+main.index_content .article_image img{
     max-width:100%;max-height:100%;margin-top:10px;
 }
 
-main article h1{
+main h1{
     text-transform: uppercase;color:#363475;font-size:24px;text-align:center;font-weight:normal;margin-bottom:10px;
 }
 
@@ -203,15 +220,60 @@ article .article_information ul li:last-child img{
     margin-top: 4px;
 }
 .article_information .read_more{
-    float:right;text-decoration: none;color:#9d9d9d;font-size:12px;font-style:italic;
+    float:right;
     background-image: url("../images/read_more.png");background-repeat: no-repeat;
-    background-position:center center;cursor:pointer;padding: 4px 18px;
+    ;padding: 4px 18px;background-size:contain;
 }
 
-.article_information .read_more:hover{
+.button{
+    text-decoration: none;color:#9d9d9d;font-size:12px;font-style:italic;
+    background-position:center center;cursor:pointer
+}
+
+ .button:hover{
     text-decoration: underline;
 }
-/*   content    */
+
+
+/* full_article_content */
+
+main.full_article_content{
+    margin-top:0;
+}
+
+main.full_article_content p.bread_crumbs,main.full_article_content .bread_crumbs a{
+    color: #9d9d9d;font-size: 12px;font-style: italic;
+}
+
+
+main.full_article_content img.full_article_header_image{
+    max-width:60%;max-height:300px;display:block;margin:0 auto
+}
+
+main.full_article_content img.full_article_content_image{
+    max-width:40%;max-height:300px;display:block;margin:0 auto
+}
+
+main.full_article_content p{
+    text-indent: 20px;margin-bottom:20px;
+}
+
+main.full_article_content .article_information{
+    margin-top:-20px;margin-bottom:20px;
+}
+
+#comments .add_comment_button{
+
+}
+
+
+/* end full_article_content */
+
+
+
+
+
+/*   end content    */
 
 /* aside */
 
