@@ -123,11 +123,43 @@
                     </div>
                 </article>
 
-                <div id="comments">
+                <div id="comments_main">
                     <h1>Комментарии</h1>
-                        <p>
+                        <div>
                             <a href="#" class="add_comment_button button">Добавить комментарий</a>
-                        </p>
+                        </div>
+
+                    <div id = "text_comment">
+                        <form method="post" action="">
+                            <textarea> </textarea><br>
+                            <button name = "send_comment" class="button">Отправить</button>
+                        </form>
+                        <span class="x">
+                            <img src = "images/x.png">
+                        </span>
+                    </div>
+
+                    <div class="comment">
+                        <div class = "comments_left">
+                            <img src = "images/default-avatar.jpg">
+                            <p>Login</p>
+                        </div>
+                        <div class="comments_right">
+                            <p class="comment_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
+                       <button class = "add_answer button">Ответить</button>
+                            <div class="clear"></div>
+                            <div class = "answer_form">
+                                <form method="post" action="">
+                                    <textarea name="answer_comment" id="answer_comment" ></textarea>
+                                    <span class="x_answer"><img src="images/x.png"> </span>
+                                    <br>
+                                    <button class="button">Отправить</button>
+                                    <img src="images/comments_separate_line.png">
+                                </form>
+                            </div>
+                        </div>
+                        <div class = "clear"></div>
+                    </div>
 
                 </div>
 

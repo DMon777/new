@@ -220,9 +220,8 @@ article .article_information ul li:last-child img{
     margin-top: 4px;
 }
 .article_information .read_more{
-    float:right;
-    background-image: url("../images/read_more.png");background-repeat: no-repeat;
-    ;padding: 4px 18px;background-size:contain;
+    float:right;background-image: url("../images/read_more.png");background-repeat: no-repeat;
+    padding: 4px 18px;background-size:contain;
 }
 
 .button{
@@ -262,8 +261,49 @@ main.full_article_content .article_information{
     margin-top:-20px;margin-bottom:20px;
 }
 
-#comments .add_comment_button{
 
+#comments_main div{
+margin-bottom:10px;
+}
+
+#comments_main .add_comment_button{
+    background-image: url("../images/add_comment.png");background-repeat: no-repeat; padding: 4px 8px
+}
+
+#text_comment{
+    position:relative;width:370px;max-width:100%;
+}
+
+#text_comment textarea{
+    width:370px;height:140px;
+}
+
+#text_comment button{
+    border:none;background-image: url("../images/read_more.png");border-radius: 5px;
+    background-repeat: no-repeat;background-position: center center;padding:3px 24px;background-size:cover;
+    margin-top: 10px;
+}
+
+#text_comment textarea{
+    resize: vertical;
+}
+span.x{
+    position:absolute; right:-6px;top:-4px;cursor:pointer;
+}
+
+.comments_left{
+    float:left;width:30%;
+}
+
+.comments_right{
+    float:right;width:65%;
+}
+
+main.full_article_content p.comment_text{
+    margin-bottom:0;!important;
+}
+button.add_answer{
+    float: right;
 }
 
 
