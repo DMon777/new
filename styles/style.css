@@ -266,12 +266,18 @@ main.full_article_content .article_information{
 margin-bottom:10px;
 }
 
+#comments_main p{
+    color: #363475;
+    font-size: 14px;
+}
+
 #comments_main .add_comment_button{
-    background-image: url("../images/add_comment.png");background-repeat: no-repeat; padding: 4px 8px
+    background-image: url("../images/add_comment.png");background-repeat: no-repeat; padding: 4px 8px;
+    display: inline-block;margin-bottom: 20px;
 }
 
 #text_comment{
-    position:relative;width:370px;max-width:100%;
+    position:relative;width:370px;max-width:100%;display:none;
 }
 
 #text_comment textarea{
@@ -291,12 +297,34 @@ span.x{
     position:absolute; right:-6px;top:-4px;cursor:pointer;
 }
 
-.comments_left{
-    float:left;width:30%;
+div.comment{
+    margin-left:20px;
 }
 
+.comments_left{
+    float:left;width:18%;
+}
+
+.comments_left div{
+    width:100%;
+}
+
+.comments_left img{
+    width:100%;
+}
+
+.comments_left p.login{
+    text-align: center;text-indent:0;
+}
+
+
 .comments_right{
-    float:right;width:65%;
+    float:right;width:80%;box-sizing: border-box;
+}
+
+.comments_right button.add_answer{
+    background-image: url("../images/read_more.png"); background-position: center center;background-repeat: no-repeat;
+    background-size: cover;border: medium none;border-radius: 5px; margin-top:2px;padding: 3px 8px;
 }
 
 main.full_article_content p.comment_text{
@@ -304,6 +332,22 @@ main.full_article_content p.comment_text{
 }
 button.add_answer{
     float: right;
+}
+
+.answer_form{
+    position:relative;display:none;
+}
+
+.answer_form textarea{
+    width:100%;resize:vertical;height:65px;margin-bottom:-15px;
+}
+
+.answer_form span.x_answer{
+position:absolute;top:-4px;right:-5px;cursor:pointer;
+}
+
+.separate_comments_line{
+    margin:0 auto 20px;display:block;width:88%;
 }
 
 
