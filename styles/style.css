@@ -48,7 +48,7 @@ header > img{
 }
 
 #auth{
-    position:absolute;right:20px;bottom:20px;width:280px;height:145px;
+    position:absolute;right:20px;bottom:20px;width:280px;height:153px;
     background-color:rgba(241,241,241,0.5);border-radius: 5px;
 }
 
@@ -70,6 +70,26 @@ header > img{
     display:block;
     margin:0 auto;
 }
+
+
+
+#auth .forgot{
+   font-size:12px;
+    margin-left: 20px;
+}
+
+#auth .forgot a{
+    text-decoration:none;color:grey;
+}
+
+#auth .forgot a:hover{
+    text-decoration:underline;
+}
+
+.forgot span{
+    color:grey;
+}
+
 
 
 
@@ -430,6 +450,39 @@ main#search_results_content .article_information{
     width: 120px;
 }
 /* end edit profile_content */
+
+/* sitemap_content */
+
+main#sitemap_content{
+    margin-top:0;
+}
+
+#sitemap_content ul{
+    margin-left:20px;
+}
+
+#sitemap_content ul li{
+    list-style:none;
+}
+
+#sitemap_content ul li a,span{
+    text-decoration:none;color:blue;
+}
+
+#sitemap_content ul li a:hover{
+    text-decoration:underline;
+}
+
+#sitemap_content h3{
+    margin:5px 0;
+}
+
+#sitemap_content h2{
+    color: #363475;font-size: 20px;font-weight: normal;
+    text-transform: uppercase;margin-top:10px;
+}
+
+/* end sitemap_content */
 
 
 
