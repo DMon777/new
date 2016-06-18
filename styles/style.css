@@ -48,7 +48,7 @@ header > img{
 }
 
 #auth{
-    position:absolute;right:20px;bottom:20px;width:280px;height:145px;
+    position:absolute;right:20px;bottom:20px;width:280px;height:153px;
     background-color:rgba(241,241,241,0.5);border-radius: 5px;
 }
 
@@ -73,6 +73,26 @@ header > img{
 
 
 
+#auth .forgot{
+   font-size:12px;
+    margin-left: 20px;
+}
+
+#auth .forgot a{
+    text-decoration:none;color:grey;
+}
+
+#auth .forgot a:hover{
+    text-decoration:underline;
+}
+
+.forgot span{
+    color:grey;
+}
+
+
+
+
 /*  если пользователь авторизован */
 
 #authorized{
@@ -88,13 +108,14 @@ header > img{
 
 nav{
 width:100%;height:60px;border-radius:5px;background: linear-gradient(180deg, rgba(223,221,225,1) 0, rgba(125,124,125,1) 100%);
+    overflow: hidden;
 }
 
 #menu{
-    float:left; margin: 17px 25px;
+    float:left; margin: 17px 0 17px 25px;
 }
 #search{
-    float:right;margin: 17px 25px;
+    float:right;margin: 17px 25px 17px 0;
 }
 
 ul.main_menu li{
@@ -152,9 +173,96 @@ ul.inner_menu li:last-child a{
     background-position:center center;cursor:pointer;
 }
 
+    #search input[name="search_text"]:focus{
+        outline:none;
+    }
+
 #search div{
     position:relative;
 }
+
+
+/*  adaptive menu */
+
+#adaptive_menu{
+    float:left;display:none;
+}
+    #menu_image{
+        width:60px;height:40px;display: inline-block;padding:10px 25px;cursor:pointer;
+    }
+
+#adaptive_search{
+    float:right;display:none;position:relative;
+}
+    #search_image{
+        height:40px;display: inline-block;padding:10px 25px;cursor:pointer;
+    }
+
+#adaptive_search_form{
+    display:none;margin:15px 50px 0 0;
+}
+    #adaptive_search input[name="search_text"]{
+        border:none;background: none;font-size:18px;color:#363475;
+    }
+
+    #adaptive_search input[name="search_text"]:focus{
+        outline:none;
+    }
+
+    input[name="search_text"]::-webkit-input-placeholder {
+        color: #363475;
+    }
+    input[name="search_text"]::-moz-placeholder {
+        color: #363475;
+    }
+
+    input[name="search_text"]::-ms-input-placeholder{
+        color:#363475;
+    }
+
+    #adaptive_search input[name="search"]{
+      width:30px;height:22px;
+    }
+
+    #adaptive_form_close{
+        position: absolute;right: 8px;top: 15px;width: 30px;
+    }
+
+ul#adaptive_main_menu{
+    background: rgba(0, 0, 0, 0) linear-gradient(180deg, rgba(223, 221, 225, 1) 0px, rgba(125, 124, 125, 1) 100%) repeat scroll 0 0;
+    border-radius: 0 0 5px 5px;
+    display: none;
+    padding:7px 0 0 10px;
+    position: absolute;
+    z-index: 10;
+    margin-top:-3px;
+}
+
+    .inner_adaptive_menu{
+        margin-left:10px;display:none;
+    }
+    #adaptive_main_menu li{
+    list-style: none;
+    }
+        #adaptive_main_menu li a{
+            color: #020064;
+            font-family: "Comfortaa";
+            font-size: 18px;
+            text-decoration: none;
+            display:inline-block;
+            padding: 10px 30px 0 10px;
+        }
+        #adaptive_main_menu>li:last-child a{
+            padding-bottom:10px;
+        }
+
+
+
+
+
+/* end adaptive menu */
+
+
 /*   end menu    */
 /*   content    */
 
@@ -431,6 +539,39 @@ main#search_results_content .article_information{
 }
 /* end edit profile_content */
 
+/* sitemap_content */
+
+main#sitemap_content{
+    margin-top:0;
+}
+
+#sitemap_content ul{
+    margin-left:20px;
+}
+
+#sitemap_content ul li{
+    list-style:none;
+}
+
+#sitemap_content ul li a,span{
+    text-decoration:none;color:blue;
+}
+
+#sitemap_content ul li a:hover{
+    text-decoration:underline;
+}
+
+#sitemap_content h3{
+    margin:5px 0;
+}
+
+#sitemap_content h2{
+    color: #363475;font-size: 20px;font-weight: normal;
+    text-transform: uppercase;margin-top:10px;
+}
+
+/* end sitemap_content */
+
 
 
 
@@ -539,7 +680,26 @@ footer #footer_logo{
 
 
 
+@media screen and (max-width:975px){
 
+    ul.main_menu li{
+        padding-left:16px;
+    }
+
+}
+
+@media screen and (max-width:900px){
+
+    #menu,#search{
+        display: none;
+    }
+
+    #adaptive_menu,#adaptive_search{
+        display:block;
+    }
+
+
+}
 
 
 
