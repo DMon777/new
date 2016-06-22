@@ -20,6 +20,35 @@ $(document).ready(function() {
         },1000);
     });
 
+    $("#menu_image").bind('click',function(){
+
+        $("#adaptive_main_menu").slideToggle(300);
+
+    });
+
+    $("#adaptive_main_menu a").bind('click',function(event){
+        if($(this).next().length == 0){
+            return true;
+        }
+        else{
+            event.preventDefault();
+            $(this).next().slideToggle(200);
+        }
+    });
+
+
+    $("#search_image").bind('click',function(){
+       $(this).css('display','none');
+        $("#adaptive_search_form").css('display','block');
+
+        $("#adaptive_form_close").bind('click',function(){
+            $("#adaptive_search_form").css('display','none');
+            $("#search_image").css('display','block');
+        });
+
+    });
+
+
 
 });
 
