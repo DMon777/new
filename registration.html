@@ -27,9 +27,7 @@
 
                 <div id="auth">
                     <div>
-
-
-
+                        <img src="images/x.png" id="auth_close_img">
                         <form method = "post" action = "">
                             <input type="text" name="login" placeholder="Логин"><br>
                             <input type="password" name="password" placeholder="Пароль"><br>
@@ -37,6 +35,10 @@
                         </form>
                         <div class="forgot"><a href="">Забыли логин</a><span>|</span><a href="">Забыли пароль</a> </div>
                     </div>
+                </div>
+
+                <div class="adaptive_auth">
+                    <img src="images/login.png" id="auth_img">
                 </div>
 
                 <!--  <div id = 'authorized'>
@@ -74,7 +76,43 @@
                 </form>
             </div>
 
+            <div id="adaptive_menu">
+                <img src="images/adaptive_menu.png" id="menu_image">
+
+                <ul id="adaptive_main_menu">
+                    <li><a href="index.html"> Главная </a> </li>
+                    <li><a href="#"> Категории </a>
+
+                        <ul class = "inner_adaptive_menu">
+                            <li> <a href="#"> Большая грудь </a> </li>
+                            <li> <a href="#"> Большая попа </a> </li>
+                            <li> <a href="#"> Худенькие </a> </li>
+                        </ul>
+
+                    </li>
+
+                    <li><a href="#"> Регистрация </a> </li>
+                    <li><a href="#"> Карта сайта </a> </li>
+
+                </ul>
+
+            </div>
+
+            <div id="adaptive_search">
+                <img src="images/adaptive_search.png" id="search_image">
+            </div>
+
         </nav>
+        <div class="clear"></div>
+
+        <div id = "adaptive_search_form">
+            <form method="post" action = "">
+                <input type="text" name = "search_text" placeholder="Найти...">
+                <input type="image" src="images/search.png" name = "search" value = "">
+                <img src="images/adaptive_close.png" id="adaptive_form_close">
+            </form>
+        </div>
+        <div class="clear"></div>
 
         <main id = "registration_content">
             <div>
@@ -88,38 +126,42 @@
                                 <tr>
                                     <td class="field_name">Логин</td>
                                     <td>
-                                        <input type="text" name="login">
+                                        <input type="text" name="login"><br>
+                                        <span class = 'registration_error_message'>Сообщение об ошибке</span>
                                     </td>
-                                    <td><span class = 'registration_error_message'>Сообщение об ошибке</span></td>
+
                                 </tr>
                                 <tr>
                                     <td class="field_name">Email</td>
                                     <td>
-                                        <input type="text" name="email">
+                                        <input type="text" name="email"><br>
+                                        <span class = 'registration_error_message'>Сообщение об ошибке</span>
                                     </td>
-                                    <td><span class = 'registration_error_message'>Сообщение об ошибке</span></td>
+
                                 </tr>
                                 <tr>
                                     <td class="field_name">Пароль</td>
                                     <td>
-                                        <input type="password" name="password">
+                                        <input type="password" name="password"><br>
+                                        <span class = 'registration_error_message'>Сообщение об ошибке</span>
                                     </td>
-                                    <td><span class = 'registration_error_message'>Сообщение об ошибке</span></td>
+
                                 </tr>
                                 <tr>
                                     <td class="field_name">Подтвердите<br> пароль</td>
                                     <td>
-                                        <input type="password" name="confirm_password">
+                                        <input type="password" name="confirm_password"><br>
+                                        <span class = 'registration_error_message'>Сообщение об ошибке</span>
                                     </td>
-                                    <td><span class = 'registration_error_message'>Сообщение об ошибке</span></td>
+
                                 </tr>
 
                                 <tr>
                                     <td class="field_name">Введите код<br> с картинки</td>
                                     <td>
-                                       <img src="images/captch.png" id="captcha" width="150">
+                                       <img src="images/captch.png" id="captcha" width="150"><br>
+                                        <span class = 'registration_error_message'>Сообщение об ошибке</span>
                                     </td>
-                                    <td><span class = 'registration_error_message'>Сообщение об ошибке</span></td>
                                 </tr>
                                 <tr>
                                     <td></td>
