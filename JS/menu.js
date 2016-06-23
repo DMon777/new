@@ -38,15 +38,30 @@ $(document).ready(function() {
 
 
     $("#search_image").bind('click',function(){
-       $(this).css('display','none');
-        $("#adaptive_search_form").css('display','block');
+        $("#search_image").slideUp();
+        $("#adaptive_search_form").slideDown();
+        $("#adaptive_form_close").slideDown();
+    });
 
-        $("#adaptive_form_close").bind('click',function(){
-            $("#adaptive_search_form").css('display','none');
-            $("#search_image").css('display','block');
-        });
+
+    $("#adaptive_form_close").bind('click',function(){
+        $("#adaptive_search_form").css('display','none');
+        $("#adaptive_form_close").css('display','none');
+        $("#search_image").css('display','block');
+    });
+
+
+    $("#auth_img").bind('click',function(){
+
+        $("#auth_img").css('display','none');
+        $("#auth").slideDown(300);
 
     });
+
+    $("#auth_close_img").bind('click',function(){
+        $("#auth").css('display','none');
+        $("#auth_img").slideDown(300);
+    })
 
 
 

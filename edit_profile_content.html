@@ -28,8 +28,7 @@
                 <div id="auth">
                     <div>
 
-
-
+                        <img src="images/x.png" id="auth_close_img">
                         <form method = "post" action = "">
                             <input type="text" name="login" placeholder="Логин"><br>
                             <input type="password" name="password" placeholder="Пароль"><br>
@@ -39,6 +38,10 @@
                     </div>
                 </div>
 
+
+                <div class="adaptive_auth">
+                    <img src="images/login.png" id="auth_img">
+                </div>
                 <!--  <div id = 'authorized'>
                        <p>Добро пожаловать на сайт</p>
                        <p>Логин</p>
@@ -74,7 +77,43 @@
                 </form>
             </div>
 
+            <div id="adaptive_menu">
+                <img src="images/adaptive_menu.png" id="menu_image">
+
+                <ul id="adaptive_main_menu">
+                    <li><a href="index.html"> Главная </a> </li>
+                    <li><a href="#"> Категории </a>
+
+                        <ul class = "inner_adaptive_menu">
+                            <li> <a href="#"> Большая грудь </a> </li>
+                            <li> <a href="#"> Большая попа </a> </li>
+                            <li> <a href="#"> Худенькие </a> </li>
+                        </ul>
+
+                    </li>
+
+                    <li><a href="#"> Регистрация </a> </li>
+                    <li><a href="#"> Карта сайта </a> </li>
+
+                </ul>
+
+            </div>
+
+            <div id="adaptive_search">
+                <img src="images/adaptive_search.png" id="search_image">
+            </div>
+
         </nav>
+        <div class="clear"></div>
+
+        <div id = "adaptive_search_form">
+            <form method="post" action = "">
+                <input type="text" name = "search_text" placeholder="Найти...">
+                <input type="image" src="images/search.png" name = "search" value = "">
+                <img src="images/adaptive_close.png" id="adaptive_form_close">
+            </form>
+        </div>
+        <div class="clear"></div>
 
         <main id = "edit_profile_content">
             <div>
@@ -90,7 +129,6 @@
                                            <img id="avatar" src="images/default-avatar.jpg">
                                        </td>
                                        <td><span class = 'registration_error_message'>Сообщение об ошибке</span></td>
-
                                 </tr>
 
                                 <tr>
