@@ -293,7 +293,7 @@ ul#adaptive_main_menu{
 
 
 main{
-    width:67%;float:left;margin-top:25px;
+    width:67%;float:left;
 }
 
 main.index_content article{
@@ -417,6 +417,7 @@ margin-bottom:10px;
     position:relative;width:370px;max-width:100%;display:none;
 }
 
+
 #text_comment textarea{
     width:370px;height:140px;
 }
@@ -456,7 +457,12 @@ div.comment{
 
 
 .comments_right{
-    float:right;width:80%;box-sizing: border-box;
+    float:right;width:80%;box-sizing: border-box;position:relative;
+}
+
+.delete_comment{
+    position:absolute;
+    right: 0;top:-10px;cursor:pointer;
 }
 
 .comments_right button.add_answer{
@@ -475,8 +481,12 @@ button.add_answer{
     position:relative;display:none;
 }
 
+.answer_form>form{
+    overflow: hidden;
+}
+
 .answer_form textarea{
-    width:100%;resize:vertical;height:65px;margin-bottom:-15px;
+    width:100%;resize:vertical;height:65px;
 }
 
 .answer_form span.x_answer{
@@ -634,7 +644,7 @@ aside .commercial_block img{
 }
 
 aside h1{
-    font-size:18px;color:#363475;font-weight: normal;text-align:center;margin:20px 0;
+    font-size:18px;color:#363475;font-weight: normal;text-align:center;margin-bottom:20px
 }
 /*
 
