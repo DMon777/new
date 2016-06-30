@@ -1,6 +1,46 @@
 <main class="index_content">
     <div>
-        <div class = "article_image">
+
+        <?if($articles):?>
+
+            <?foreach($articles as $key => $val):?>
+                <div class = "article_image">
+                    <img src="http://<?=SITE_NAME;?>/images/articles_images/<?=$val['image']; ?>" alt="<?=$val['title'];?>">
+                </div>
+
+                <article>
+                    <h1><?=$val['title'];?></h1>
+                    <p><?=$val['small_article'];?></p>
+                    <div class = "article_information">
+                        <span class = "article_date">Дата:<?=date('d/m/Y',$val['publication_date']);?></span>
+                        <ul>
+                            <li>
+                                <img src="http://<?=SITE_NAME;?>/images/count_rewiews.png" alt="rewiews"><span><?=$val['quantity_views']?></span>
+                            </li>
+                            <li>
+                                <img src="http://<?=SITE_NAME;?>/images/likes.png" alt="likes"><span><?=$val['count_likes']?></span>
+                            </li>
+                        </ul>
+                        <a href="http://<?=SITE_NAME;?>/articles/id/<?=$val['id'];?>" class="read_more button">Читать далее</a>
+                    </div>
+                </article>
+                <div class = "clear"></div>
+
+            <?endforeach;?>
+
+
+        <?else:?>
+            <p>Статей нет!</p>
+
+        <?endif;?>
+
+
+
+
+
+
+
+    <!--    <div class = "article_image">
             <img src="images/articles_images/Alexis_Texas.jpg" alt="Alexis Texas">
         </div>
 
@@ -26,7 +66,7 @@
         </article>
         <div class = "clear"></div>
 
-        <div class = "article_image clearfix">
+        <div class = "article_image ">
             <img src="images/articles_images/Annika_Albrite.jpg" alt = "Annika Albrite" >
         </div>
 
@@ -52,7 +92,7 @@
         </article>
         <div class = "clear"></div>
 
-        <div class = "article_image clearfix">
+        <div class = "article_image ">
             <img src="images/articles_images/Mia_Malkova.jpg" alt="Mia Malkova">
         </div>
 
@@ -76,7 +116,7 @@
                 <a href="#" class="read_more button">Читать далее</a>
             </div>
         </article>
-        <div class = "clear"></div>
+        <div class = "clear"></div>-->
 
     </div>
 </main>

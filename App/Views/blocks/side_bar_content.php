@@ -4,13 +4,13 @@
         <div id = "subscribe_block">
             <h1>Подписаться на обновления</h1>
             <p>Подпишитись по <b>e-mail</b> и вы всегда будете самым первым узнавать о новых статьях на нашем сайте!!!</p>
-            <img src = "images/rss.png" id="rss_image">
+            <img src = "http://<?=SITE_NAME;?>/images/rss.png" id="rss_image">
             <a href="#" id="subscribe">Подписаться</a>
         </div>
 
         <div class = "commercial_block">
             <h1>Реклама</h1>
-            <img src="images/reklama3.jpg">
+            <img src="http://<?=SITE_NAME;?>/images/reklama3.jpg">
         </div>
 
         <div class = "tags_select">

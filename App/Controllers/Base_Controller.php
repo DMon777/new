@@ -13,8 +13,10 @@ abstract class Base_Controller extends Main_Controller
     protected $keywords;
     protected $description;
     protected $footer;
+    protected $navigation_block;
+    protected $need_navigation_block = true;
+    protected $href;
     protected $navigation;
-    protected $need_navigation = true;
     protected $scripts = [];
 
     protected function input($params = []){
@@ -37,15 +39,19 @@ abstract class Base_Controller extends Main_Controller
         $this->footer = $this->render([],'App/Views//blocks/footer');
 
         $this->side_bar = $this->render([],'App/Views//blocks/side_bar_content');
-        if($this->need_navigation){
-            $this->navigation = $this->render([],'App/Views//blocks/navigation');
+        if($this->need_navigation_block){
+            $this->navigation_block = $this->render([
+                'href'       => $this->href,
+                'navigation' => $this->navigation
+            ],
+           'App/Views//blocks/navigation_block');
         }
 
         $page = $this->render([
             'header'        => $this->header,
             'footer'        => $this->footer,
             'content'       => $this->content,
-            'navigation'    => $this->navigation,
+            'navigation_block'    => $this->navigation_block,
             'side_bar'      => $this->side_bar],
             'App/Views/blocks/base_template');
         return $page;

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$title;?></title>
-    <link rel="stylesheet" href="styles/style.css" type="text/css">
+    <link rel="stylesheet" href="http://<?=SITE_NAME;?>/styles/style.css" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Comfortaa&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
     <? foreach($scripts as $script): ?>
@@ -18,18 +18,18 @@
     <div id="main_wrapper">
         <header>
 
-            <a href="#"> <img src="images/logo.png" alt="logo"> </a>
+            <a href="#"> <img src="http://<?=SITE_NAME;?>/images/logo.png" alt="logo"> </a>
             <div id="social_icons">
-                <a href="#"> <img src="images/social_icon1.png" alt="social_icon"></a>
-                <a href="#"> <img src="images/social_icon2.png" alt="social_icon"></a>
-                <a href="#"> <img src="images/social_icon3.png" alt="social_icon"></a>
+                <a href="#"> <img src="http://<?=SITE_NAME;?>/images/social_icon1.png" alt="social_icon"></a>
+                <a href="#"> <img src="http://<?=SITE_NAME;?>/images/social_icon2.png" alt="social_icon"></a>
+                <a href="#"> <img src="http://<?=SITE_NAME;?>/images/social_icon3.png" alt="social_icon"></a>
             </div>
             <div id="header_background">
-                <img src="images/header-bg.png" alt="header_background">
+                <img src="http://<?=SITE_NAME;?>/images/header-bg.png" alt="header_background">
 
                 <div id="auth">
                     <div>
-                        <img src="images/x.png" id="auth_close_img" alt="close">
+                        <img src="http://<?=SITE_NAME;?>/images/x.png" id="auth_close_img" alt="close">
 
                         <form method = "post" action = "#">
                             <input type="text" name="login" placeholder="Логин"><br>
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="adaptive_auth">
-                    <img src="images/login.png" id="auth_img" alt="auth">
+                    <img src="http://<?=SITE_NAME;?>/images/login.png" id="auth_img" alt="auth">
                 </div>
 
                 <!--   <div id = 'authorized'>
@@ -84,7 +84,7 @@
             </div>
 
             <div id="adaptive_menu">
-                <img src="images/adaptive_menu.png" id="menu_image" alt="меню">
+                <img src="http://<?=SITE_NAME;?>/images/adaptive_menu.png" id="menu_image" alt="меню">
 
                 <ul id="adaptive_main_menu">
                     <?foreach($menu as $key => $val): ?>
@@ -105,7 +105,7 @@
             </div>
 
             <div id="adaptive_search">
-                <img src="images/adaptive_search.png" id="search_image" alt="найти">
+                <img src="http://<?=SITE_NAME;?>/images/adaptive_search.png" id="search_image" alt="найти">
             </div>
         </nav>
         <div class="clear"></div>
@@ -114,7 +114,7 @@
             <form method="post" action = "#">
                 <input type="text" name = "search_text" placeholder="Найти...">
                 <input type="image" src="images/search.png" name = "search" alt = "search">
-                <img src="images/adaptive_close.png" id="adaptive_form_close" alt="Закрыть">
+                <img src="http://<?=SITE_NAME;?>/images/adaptive_close.png" id="adaptive_form_close" alt="Закрыть">
             </form>
         </div>
         <div class="clear"></div>

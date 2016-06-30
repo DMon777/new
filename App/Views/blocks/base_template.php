@@ -1,5 +1,5 @@
 <?=$header;?>
 <?=$content;?>
 <?=$side_bar;?>
-<?=$navigation;?>
+<?=$navigation_block;?>
 <?=$footer;?>
