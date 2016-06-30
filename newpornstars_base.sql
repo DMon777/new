@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 30 2016 г., 14:40
+-- Время создания: Июл 01 2016 г., 01:23
 -- Версия сервера: 5.5.48
 -- Версия PHP: 7.0.4
 
@@ -67,22 +67,93 @@ INSERT INTO `articles` (`id`, `title`, `keywords`, `description`, `category`, `s
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `articles_tags`
+--
+
+CREATE TABLE IF NOT EXISTS `articles_tags` (
+  `id` int(11) unsigned NOT NULL,
+  `article_id` int(11) unsigned NOT NULL,
+  `tag_id` int(11) unsigned NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `articles_tags`
+--
+
+INSERT INTO `articles_tags` (`id`, `article_id`, `tag_id`) VALUES
+(1, 1, 1),
+(2, 1, 5),
+(3, 2, 1),
+(4, 2, 5),
+(5, 2, 7),
+(6, 3, 1),
+(7, 3, 5),
+(8, 3, 7),
+(9, 4, 1),
+(10, 4, 6),
+(11, 5, 2),
+(12, 5, 6),
+(13, 6, 1),
+(14, 6, 2),
+(15, 6, 5),
+(16, 7, 1),
+(17, 7, 2),
+(18, 7, 5),
+(19, 8, 2),
+(20, 8, 6),
+(21, 9, 1),
+(22, 9, 6),
+(23, 10, 2),
+(24, 10, 6),
+(25, 11, 1),
+(26, 11, 2),
+(27, 11, 6),
+(28, 12, 2),
+(29, 12, 5),
+(30, 13, 1),
+(31, 13, 6),
+(32, 13, 7),
+(33, 14, 4),
+(34, 14, 7),
+(35, 14, 8),
+(36, 15, 4),
+(37, 15, 7),
+(38, 15, 8),
+(39, 16, 1),
+(40, 16, 2),
+(41, 16, 3),
+(42, 17, 1),
+(43, 17, 2),
+(44, 17, 3),
+(45, 18, 4),
+(46, 18, 6),
+(47, 18, 7),
+(48, 18, 8),
+(49, 19, 4),
+(50, 19, 5),
+(51, 19, 7),
+(52, 19, 8);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `categories`
 --
 
 CREATE TABLE IF NOT EXISTS `categories` (
   `category_id` int(11) unsigned NOT NULL,
-  `category_name` varchar(55) NOT NULL
+  `category_name` varchar(55) NOT NULL,
+  `title_in_menu` varchar(55) NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `categories`
 --
 
-INSERT INTO `categories` (`category_id`, `category_name`) VALUES
-(1, 'big ass'),
-(2, 'big tits'),
-(3, 'skiny');
+INSERT INTO `categories` (`category_id`, `category_name`, `title_in_menu`) VALUES
+(1, 'big_ass', 'Большая попа'),
+(2, 'big_tits', 'Большая грудь'),
+(3, 'skiny', 'Худенькие');
 
 -- --------------------------------------------------------
 
@@ -148,6 +219,32 @@ INSERT INTO `menu` (`id`, `title`, `href`, `parent_id`, `sorting`) VALUES
 (6, 'Регистрация', 'registration', 0, 3),
 (7, 'Карта Сайта', 'sitemap', 0, 4);
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tags`
+--
+
+CREATE TABLE IF NOT EXISTS `tags` (
+  `id` int(11) unsigned NOT NULL,
+  `title` varchar(55) NOT NULL,
+  `href` varchar(55) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `tags`
+--
+
+INSERT INTO `tags` (`id`, `title`, `href`) VALUES
+(1, 'Большие попы', 'big_ass'),
+(2, 'Большие сиськи', 'big_tits'),
+(3, 'Ebony', 'ebony'),
+(4, 'Худые ', 'skiny'),
+(5, 'Блогдинки', 'blonde'),
+(6, 'Брюнетки', 'brunete'),
+(7, 'маленькия грудь', 'small_tits'),
+(8, 'молоденькие', 'young');
+
 --
 -- Индексы сохранённых таблиц
 --
@@ -176,6 +273,12 @@ ALTER TABLE `articles`
   ADD FULLTEXT KEY `title_6` (`title`,`full_article`);
 
 --
+-- Индексы таблицы `articles_tags`
+--
+ALTER TABLE `articles_tags`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `categories`
 --
 ALTER TABLE `categories`
@@ -194,6 +297,12 @@ ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `tags`
+--
+ALTER TABLE `tags`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -202,6 +311,11 @@ ALTER TABLE `menu`
 --
 ALTER TABLE `articles`
   MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT для таблицы `articles_tags`
+--
+ALTER TABLE `articles_tags`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT для таблицы `categories`
 --
@@ -217,6 +331,11 @@ ALTER TABLE `likes`
 --
 ALTER TABLE `menu`
   MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT для таблицы `tags`
+--
+ALTER TABLE `tags`
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
