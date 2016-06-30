@@ -18,7 +18,7 @@
     <div id="main_wrapper">
         <header>
 
-            <a href="#"> <img src="http://<?=SITE_NAME;?>/images/logo.png" alt="logo"> </a>
+            <a href="http://<?=SITE_NAME?>/index"> <img src="http://<?=SITE_NAME;?>/images/logo.png" alt="logo"> </a>
             <div id="social_icons">
                 <a href="#"> <img src="http://<?=SITE_NAME;?>/images/social_icon1.png" alt="social_icon"></a>
                 <a href="#"> <img src="http://<?=SITE_NAME;?>/images/social_icon2.png" alt="social_icon"></a>
@@ -36,7 +36,8 @@
                             <input type="password" name="password" placeholder="Пароль"><br>
                             <input type="button" name="enter" value="войти">
                         </form>
-                        <div class="forgot"><a href="">Забыли логин</a><span>|</span><a href="">Забыли пароль</a> </div>
+                        <div class="forgot"><a href="http://<?=SITE_NAME;?>/forgot/item/login">Забыли логин</a><span>|
+                            </span><a href="http://<?=SITE_NAME;?>/forgot/item/password">Забыли пароль</a> </div>
                     </div>
                 </div>
 
@@ -58,15 +59,15 @@
                 <ul class = "main_menu">
                     <?foreach($menu as $key => $val): ?>
                         <?if(count($val['children'] > 0)):?>
-                            <li><a href = "<?=$val['href']?>"><?=$val['title'];?></a>
+                            <li><a href = "http://<?=SITE_NAME?>/<?=$val['href']?>"><?=$val['title'];?></a>
                                 <ul class = "inner_menu">
                                     <?foreach($val['children'] as $k => $v): ?>
-                                        <li> <a href="<?=$v['href']?>"> <?=$v['title'];?> </a> </li>
+                                        <li> <a href="http://<?=SITE_NAME?>/<?=$v['href']?>"> <?=$v['title'];?> </a> </li>
                                     <?endforeach;?>
                                 </ul>
                             </li>
                      <?else:?>
-                            <li><a href = "<?=$val['href']?>"><?=$val['title'];?></a></li>
+                            <li><a href = "http://<?=SITE_NAME?>/<?=$val['href']?>"><?=$val['title'];?></a></li>
                     <?endif;?>
                     <?endforeach;?>
                 </ul>

@@ -1,6 +1,15 @@
 <main class="index_content">
     <div>
+        <p class = "bread_crumbs">
 
+            <?if($category_name):?>
+                <a href="http://<?=SITE_NAME;?>/index">Главная</a>
+                <span> /<?=$category_name;?> </span>
+
+            <?else:?>
+                <span>Главная </span>
+            <?endif;?>
+        </p>
         <?if($articles):?>
 
             <?foreach($articles as $key => $val):?>

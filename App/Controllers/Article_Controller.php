@@ -9,10 +9,9 @@ class Article_Controller extends Base_Controller
     protected $article;
 
 
-    protected function input($params = array()){
+    protected function input($params = []){
         parent::input();
 
-        $this->article = $this->model_object->get_article($params['id']);
 
     }
 

@@ -27,8 +27,8 @@ class Route_Controller extends Main_Controller
         }
 
         if (!empty($query_array[1])) {
-            $key = array();
-            $value = array();
+            $key = [];
+            $value = [];
             for ($i = 1; $i < count($query_array); $i++) {
                 if ($i % 2 !== 0) {
                     $key[] = $query_array[$i];
