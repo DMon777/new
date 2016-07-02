@@ -54,4 +54,8 @@ abstract class Main_Controller
         echo $this->page;
     }
 
+    protected function clean_str($str){
+        return htmlspecialchars(trim($str));
+    }
+
 }
