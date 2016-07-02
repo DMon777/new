@@ -62,7 +62,7 @@ for ($i = 0; $i < $captlen; $i++){
 // с ней будет сравниваться введенный пользователем текст
 
 
-$_SESSION['capcha'] = $capcha;
+$_SESSION['captcha'] = $capcha;
 
 imagepng($capim); // Выводим картинку.
 

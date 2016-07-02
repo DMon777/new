@@ -35,5 +35,15 @@ class User_Model extends Abstract_Model
         return false;
     }
 
+    public function check_busy_email($email){
+        $sql = "SELECT mail FROM users WHERE mail='$email'";
+        $result = self::$db->prepared_select($sql);
+        if($result){
+            return true;
+        }
+        return false;
+    }
+
+
 
 }

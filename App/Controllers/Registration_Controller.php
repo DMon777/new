@@ -18,6 +18,8 @@ class Registration_Controller extends Base_Controller
     protected $subject = "Без темы";
     protected $from = 'd.mon11kg@gmail.com';
     protected $headers;
+    protected $registration_message;
+
 
     protected function input($params = []){
         parent::input();
@@ -33,7 +35,8 @@ class Registration_Controller extends Base_Controller
 
     protected function output(){
 
-        $this->content = $this->render([],'App/Views/blocks/registration_content');
+        $this->content = $this->render(['message' => $this->registration_message],
+            'App/Views/blocks/registration_content');
 
         $this->page = parent::output();
     }
@@ -46,6 +49,32 @@ class Registration_Controller extends Base_Controller
         $this->captcha    = $this->clean_str($_POST['captcha']);
         $this->rand_code = rand(100000,999999);
 
+        if(User_Model::instance()->check_busy_login($this->login) || strlen($this->login) < 3 ){
+
+            return false;
+
+        }
+
+        if(!preg_match("/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/"
+                        ,$this->email )||
+            User_Model::instance()->check_busy_email($this->email)){
+            $this->registration_message = "Ошибка при регистрации , попробуйте еще.";
+            return false;
+        }
+
+        if($this->password != $this->confirm_password  || strlen($this->password) < 5 ){
+            $this->registration_message = "Ошибка при регистрации , попробуйте еще.";
+            return false;
+        }
+
+         if(strnatcasecmp ($this->captcha,$_SESSION['captcha'])){
+             $this->registration_message = "Ошибка при регистрации , попробуйте еще.";
+             return false;
+         }
+
+
+
+
         User_Model::instance()->reg_user($this->login,$this->password,$this->email,$this->rand_code);
 
 
@@ -56,6 +85,8 @@ class Registration_Controller extends Base_Controller
         $this->headers = "From: $this->from\r\nReply-to:$this->from\r\nContent-type:text/plain;charset = utf-8\r\n";
 
         mail($this->email,$this->email_message,$this->subject,$this->headers);
+        $this->registration_message = "На ваш почтовый ящик было отправлено письмо с ссылкой на подтверждение регистрации,проверьте почтовый ящик.";
+        return true;
 
     }
 
