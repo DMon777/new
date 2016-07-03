@@ -22,12 +22,13 @@ abstract class Base_Controller extends Main_Controller
     protected $all_tags;
 
     protected function input($params = []){
-
-        $this->scripts = ['jQuery','menu'];
+            parent::input();
+        $this->scripts = ['jQuery','menu','auth'];
 
         $this->menu = Menu_Model::instance()->make_menu_tree();
 
         $this->all_tags = Articles_Model::instance()->get_all_tags();
+
 
 
     }

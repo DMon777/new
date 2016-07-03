@@ -1,6 +1,4 @@
 <?php
-
-
 namespace App\Controllers;
 
 use App\Models\User_Model;
@@ -21,6 +19,9 @@ class Ajax_Controller extends Base_Controller
 
             case 'validate_captcha':
                 $this->validate_captcha($_POST['captcha']);
+                break;
+            case 'auth':
+                $this->ajax_auth($_POST['login'],$_POST['password']);
                 break;
         }
     }
@@ -62,6 +63,20 @@ class Ajax_Controller extends Base_Controller
             echo "код с картинки введен не верно!!!";
         }
         return false;
+    }
+
+    public function ajax_auth($login,$password){
+        if(empty($login) || empty($password)){
+            echo "поля должны быть заполнены!!!";
+            return false;
+        }
+        if(User_Model::instance()->auth_user($login,$password)){
+            echo $login;
+        }
+        else{
+            echo "неверный логин или пароль!";
+        }
+
     }
 
 

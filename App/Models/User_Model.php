@@ -6,7 +6,6 @@ namespace App\Models;
 class User_Model extends Abstract_Model
 {
 
-
     protected static $instance;
 
     public static function instance(){
@@ -39,6 +38,28 @@ class User_Model extends Abstract_Model
         $sql = "SELECT mail FROM users WHERE mail='$email'";
         $result = self::$db->prepared_select($sql);
         if($result){
+            return true;
+        }
+        return false;
+    }
+
+    public function auth_user($login,$password){
+
+        $sql = "SELECT login,password FROM users WHERE login='$login'";
+        $result = self::$db->prepared_select($sql)[0];
+
+        if($result && password_verify($password,$result['password'])){
+            $_SESSION['auth']['user'] = $login;
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+    public function is_auth(){
+        if(isset($_SESSION['auth']['login'])){
             return true;
         }
         return false;

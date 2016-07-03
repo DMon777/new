@@ -27,29 +27,44 @@
             <div id="header_background">
                 <img src="http://<?=SITE_NAME;?>/images/header-bg.png" alt="header_background">
 
-                <div id="auth">
-                    <div>
-                        <img src="http://<?=SITE_NAME;?>/images/x.png" id="auth_close_img" alt="close">
+                <?if(isset($_SESSION['auth']['user'])):?>
 
-                        <form method = "post" action = "#">
-                            <input type="text" name="login" placeholder="Логин"><br>
-                            <input type="password" name="password" placeholder="Пароль"><br>
-                            <input type="button" name="enter" value="войти">
-                        </form>
-                        <div class="forgot"><a href="http://<?=SITE_NAME;?>/forgot/item/login">Забыли логин</a><span>|
-                            </span><a href="http://<?=SITE_NAME;?>/forgot/item/password">Забыли пароль</a> </div>
+                    <div id = 'authorized'>
+                        <p>Добро пожаловать на сайт</p>
+                        <p><?=$_SESSION['auth']['user'];?></p>
+                        <p><a href="http://<?=SITE_NAME;?>/edit_profile"> редактировать профиль </a> </p>
+                        <p><a href="http://<?=SITE_NAME;?>/logout"> exit </a> </p>
                     </div>
-                </div>
 
-                <div class="adaptive_auth">
-                    <img src="http://<?=SITE_NAME;?>/images/login.png" id="auth_img" alt="auth">
-                </div>
+                <?else:?>
 
-                <!--   <div id = 'authorized'>
-                       <p>Добро пожаловать на сайт</p>
-                       <p>Логин</p>
-                       <p><a href="#"> редактировать профиль </a> </p>
-                   </div>-->
+                    <div id="auth">
+
+                        <div>
+                            <img src="http://<?=SITE_NAME;?>/images/x.png" id="auth_close_img" alt="close">
+
+                            <form method = "post" action = "#">
+                                <input type="text" name="login" placeholder="Логин"><br>
+                                <input type="password" name="password" placeholder="Пароль"><br>
+                                <input type="button" name="enter" value="войти" id="auth_button">
+                            </form>
+                            <div class="forgot"><a href="http://<?=SITE_NAME;?>/forgot/item/login">Забыли логин</a><span>|
+                            </span><a href="http://<?=SITE_NAME;?>/forgot/item/password">Забыли пароль</a> </div>
+                        </div>
+
+                        <span class="auth_error_message"></span>
+                    </div>
+
+
+
+                    <div class="adaptive_auth">
+                        <img src="http://<?=SITE_NAME;?>/images/login.png" id="auth_img" alt="auth">
+                    </div>
+
+                <?endif;?>
+
+
+
 
             </div>
 
@@ -90,15 +105,15 @@
                 <ul id="adaptive_main_menu">
                     <?foreach($menu as $key => $val): ?>
                         <?if(count($val['children'] > 0)):?>
-                            <li><a href = "<?=$val['href'];?>"><?=$val['title'];?></a>
+                            <li><a href = "http://<?=SITE_NAME;?>/<?=$val['href'];?>"><?=$val['title'];?></a>
                                 <ul class = "inner_adaptive_menu">
                                     <?foreach($val['children'] as $k => $v): ?>
-                                        <li> <a href="<?=$v['href']?>"> <?=$v['title'];?> </a> </li>
+                                        <li> <a href="http://<?=SITE_NAME;?>/<?=$v['href']?>"> <?=$v['title'];?> </a> </li>
                                     <?endforeach;?>
                                 </ul>
                             </li>
                         <?else:?>
-                            <li><a href = "<?=$val['href']?>"><?=$val['title'];?></a></li>
+                            <li><a href = "http://<?=SITE_NAME;?>/<?=$val['href']?>"><?=$val['title'];?></a></li>
                         <?endif;?>
                     <?endforeach;?>
                 </ul>

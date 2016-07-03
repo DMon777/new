@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 
+use App\Models\User_Model;
+
 abstract class Main_Controller
 {
 
@@ -11,15 +13,15 @@ abstract class Main_Controller
     protected $page;
 
 
-    protected function input($params = array()){
-        //будет определана в классах наследниках
+    protected function input($params = []){
+
     }
 
     protected function output(){
         //будет определана в классах наследниках
     }
 
-    protected function request($params = array()){
+    protected function request($params = []){
         $this->input($params);
         $this->output();
         $this->show_page();
@@ -35,7 +37,7 @@ abstract class Main_Controller
         }
     }
 
-    protected function render($vars = array(),$path){
+    protected function render($vars = [],$path){
         if(count($vars) > 0){
             extract($vars);
         }
@@ -57,5 +59,17 @@ abstract class Main_Controller
     protected function clean_str($str){
         return htmlspecialchars(trim($str));
     }
+
+    protected function redirect($path = false){
+        if($path){
+            $redirect = $path;
+        }
+        else{
+            $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : SITE_NAME;
+        }
+        header("Location: $redirect");
+    }
+
+
 
 }
