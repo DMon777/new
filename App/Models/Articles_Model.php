@@ -35,7 +35,21 @@ class Articles_Model extends Abstract_Model
         $sql = "SELECT * FROM tags";
         $result = self::$db->prepared_select($sql);
         return $result;
+    }
 
+    public function get_all_categories(){
+        $sql = "SELECT * FROM categories";
+        $categories = self::$db->prepared_select($sql);
+        foreach ($categories as $key => $val) {
+            $categories[$key]['articles'] = $this->get_articles_by_category_id($val['category_id']);
+        }
+        return $categories;
+
+    }
+
+    protected function get_articles_by_category_id($category_id){
+        $sql = "SELECT id,title FROM articles WHERE category=".$category_id;
+        return self::$db->prepared_select($sql);
     }
 
 }

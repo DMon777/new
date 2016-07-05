@@ -22,6 +22,7 @@ class Index_Controller extends Base_Controller
 
         $this->navigation_object = new Navigation($this->current_page,$this->table_name);
         $this->total_posts = $this->navigation_object->count_articles();
+
         $this->navigation = $this->navigation_object->get_navigation($this->total_posts);
 
         $this->articles = $this->navigation_object->get_articles();

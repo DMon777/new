@@ -27,13 +27,18 @@ $(document).ready(function() {
     });
 
     $("#adaptive_main_menu a").bind('click',function(event){
-        if($(this).next().length == 0){
+        if($(this).next().length > 0){
+            event.preventDefault();
+            $(this).next().slideToggle(200);
+        }
+
+   /*     if($(this).next().length == 0){
             return true;
         }
         else{
             event.preventDefault();
             $(this).next().slideToggle(200);
-        }
+        }*/
     });
 
 

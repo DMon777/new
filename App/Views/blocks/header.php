@@ -73,7 +73,7 @@
             <div id = "menu">
                 <ul class = "main_menu">
                     <?foreach($menu as $key => $val): ?>
-                        <?if(count($val['children'] > 0)):?>
+                        <?if(count($val['children'] ) > 0):?>
                             <li><a href = "http://<?=SITE_NAME?>/<?=$val['href']?>"><?=$val['title'];?></a>
                                 <ul class = "inner_menu">
                                     <?foreach($val['children'] as $k => $v): ?>
@@ -103,8 +103,10 @@
                 <img src="http://<?=SITE_NAME;?>/images/adaptive_menu.png" id="menu_image" alt="меню">
 
                 <ul id="adaptive_main_menu">
+
                     <?foreach($menu as $key => $val): ?>
-                        <?if(count($val['children'] > 0)):?>
+
+                        <?if(count($val['children'] ) > 0):?>
                             <li><a href = "http://<?=SITE_NAME;?>/<?=$val['href'];?>"><?=$val['title'];?></a>
                                 <ul class = "inner_adaptive_menu">
                                     <?foreach($val['children'] as $k => $v): ?>

@@ -6,20 +6,19 @@ $(document).ready(function(){
         var password = $("[name=password]").val();
 
         $.ajax({
-            url:'ajax/method/auth',
+            url:'/ajax/method/auth',
             type:'post',
             data:{login:login,password:password},
             success:function(result){
-                alert(result)
                 if(result == 'поля должны быть заполнены!!!' || result == 'неверный логин или пароль!'){
-                    $(".auth_error_message").fadeOut();
-                    $(".auth_error_message").text(result);
-                    $(".auth_error_message").fadeIn();
+                    $(".auth_error_message").hide().fadeIn(500).text(result);
                 }
                 else{
                     $("#auth").css('display','none');
-                    $("#header_background").prepend("<div id = 'authorized'><p>"+result+"</p><p><a href='/edit_profile'> редактировать профиль</a> </p>  </div>")
-
+                    $("#header_background").prepend("<div id = 'authorized'>" +"<p>Добро пожаловать на сайт</p>"+
+                        "<p>"+result+"</p><p><a href='/edit_profile'> редактировать профиль</a> </p> " +
+                        "<p><a href='/logout'>exit</a> </p>" +
+                        " </div>")
                 }
             }
         });

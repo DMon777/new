@@ -29,8 +29,6 @@ abstract class Base_Controller extends Main_Controller
 
         $this->all_tags = Articles_Model::instance()->get_all_tags();
 
-
-
     }
 
     protected function output(){

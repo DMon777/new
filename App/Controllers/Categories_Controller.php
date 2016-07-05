@@ -1,6 +1,4 @@
 <?php
-
-
 namespace App\Controllers;
 
 
@@ -9,7 +7,6 @@ use App\Models\Navigation;
 
 class Categories_Controller extends Base_Controller
 {
-
 
     protected $navigation_object;
     protected $current_page;
