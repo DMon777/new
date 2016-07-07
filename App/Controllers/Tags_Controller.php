@@ -37,7 +37,6 @@ class Tags_Controller extends Base_Controller
         $this->total_posts = $this->navigation_object->count_articles_by_tags($this->tag);
         $this->articles = $this->navigation_object->get_articles_by_tag($this->tag);
 
-
         if($this->total_posts >3 ){
             $this->navigation = $this->navigation_object->get_navigation($this->total_posts);
         }

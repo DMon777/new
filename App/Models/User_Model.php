@@ -65,6 +65,15 @@ class User_Model extends Abstract_Model
         return false;
     }
 
+    public function get_user_by_id($user_id){
+        $sql = "SELECT login,avatar FROM users WHERE id=".$user_id." AND activate=1";
+        return self::$db->prepared_select($sql)[0];
+    }
+
+    public function get_user($login){
+        $sql = "SELECT * FROM users WHERE login='$login'"." AND activate=1";
+        return self::$db->prepared_select($sql)[0];
+    }
 
 
 }

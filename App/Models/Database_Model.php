@@ -33,9 +33,9 @@ class Database_Model
         return $this->pdo->query($sql);
     }
 
-    public function prepared_select($sql,$params = array()){
+    public function prepared_select($sql,$params = []){
         $pattern = "/\?/";
-        $arr = array();
+        $arr = [];
         if(preg_match_all($pattern,$sql,$matches)){
 
 
@@ -83,7 +83,7 @@ class Database_Model
         return $result->execute();
     }
 
-    public function pdo_update($table,$data = array(),$values = array(),$where = array()){
+    public function pdo_update($table,$data = [],$values = [],$where = []){
 
         $data_res = array_combine($data,$values);
 
@@ -99,6 +99,7 @@ class Database_Model
         foreach($where as $k=>$v) {
             $sql .= " WHERE ".$k."="."'".$v."'";
         }
+
         $result = $this->pdo->prepare($sql);
         for($i=1;$i<=count($values);$i++){
             $val_count = $i-1;
@@ -129,8 +130,6 @@ class Database_Model
             $result->bindParam($count,$val);
             $count++;
         }
-
-        echo $sql;
         return $result->execute();
     }
 

@@ -30,7 +30,7 @@
                                 <img src="http://<?=SITE_NAME;?>/images/likes.png" alt="likes"><span><?=$val['count_likes']?></span>
                             </li>
                         </ul>
-                        <a href="http://<?=SITE_NAME;?>/articles/id/<?=$val['id'];?>" class="read_more button">Читать далее</a>
+                        <a href="http://<?=SITE_NAME;?>/article/id/<?=$val['id'];?>" class="read_more button">Читать далее</a>
                     </div>
                 </article>
                 <div class = "clear"></div>

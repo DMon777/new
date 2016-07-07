@@ -27,8 +27,6 @@ class Index_Controller extends Base_Controller
 
         $this->articles = $this->navigation_object->get_articles();
 
-
-
     }
 
     protected function output(){

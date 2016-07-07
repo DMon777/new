@@ -90,12 +90,11 @@
             </div>
 
             <div id="search">
-                <form method="post" action = "#">
+                <form method="get" action = "/search/query/">
                     <div>
                         <input type="text" name = "search_text" placeholder="Найти...">
                         <input type="submit" name = "search" value = "">
                     </div>
-
                 </form>
             </div>
 
@@ -129,9 +128,9 @@
         <div class="clear"></div>
 
         <div id = "adaptive_search_form">
-            <form method="post" action = "#">
+            <form method="get" action = "/search/query/">
                 <input type="text" name = "search_text" placeholder="Найти...">
-                <input type="image" src="images/search.png" name = "search" alt = "search">
+                <input type="image" src="http://<?=SITE_NAME?>/images/search.png" name = "search" alt = "search">
                 <img src="http://<?=SITE_NAME;?>/images/adaptive_close.png" id="adaptive_form_close" alt="Закрыть">
             </form>
         </div>

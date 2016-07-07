@@ -19,6 +19,9 @@ $(document).ready(function(){
     $(".answer_button").bind('click',function(){
 
         $(this).css('display','none');
+        $(".answer_form").hide();
+        $(".answer_button").show();
+        $(this).hide();
         $(this).next().show(300);
 
         $(".x_answer").bind('click',function(){
