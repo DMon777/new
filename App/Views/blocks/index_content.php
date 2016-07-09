@@ -19,15 +19,17 @@
 
                 <article>
                     <h1><?=$val['title'];?></h1>
+                    <span class = "article_date">Дата:<?=date('d/m/Y',$val['publication_date']);?></span>
                     <p><?=$val['small_article'];?></p>
                     <div class = "article_information">
-                        <span class = "article_date">Дата:<?=date('d/m/Y',$val['publication_date']);?></span>
+
                         <ul>
-                            <li>
-                                <img src="http://<?=SITE_NAME;?>/images/count_rewiews.png" alt="rewiews"><span><?=$val['quantity_views']?></span>
-                            </li>
+
                             <li>
                                 <img src="http://<?=SITE_NAME;?>/images/likes.png" alt="likes"><span><?=$val['count_likes']?></span>
+                            </li>
+                            <li>
+                                <img src="http://<?=SITE_NAME;?>/images/count_rewiews.png" alt="rewiews"><span><?=$val['quantity_views']?></span>
                             </li>
                         </ul>
                         <a href="http://<?=SITE_NAME;?>/article/id/<?=$val['id'];?>" class="read_more button">Читать далее</a>

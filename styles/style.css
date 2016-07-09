@@ -336,24 +336,24 @@ article .article_information ul{
 }
 
 article .article_information ul li{
-    list-style: none;display:inline-block;padding-right:10px;
+    list-style: none;display:inline-block;padding-right:20px;
 }
 
 article .article_information ul li span{
     display: inline-block;position:absolute;top:3px;
 }
 
-article .article_information ul li:last-child img{
+article .article_information ul li:first-child img{
     cursor:pointer;
 }
 
-.article_information .article_date {
-    float: left;
+ .article_date {
+
     color: #9d9d9d;
     font-size: 12px;
     font-style: italic;
-    margin-right: 20px;
-    margin-top: 4px;
+    display:inline-block;
+    margin-bottom:10px;
 }
 .article_information .read_more{
     float:right;background-image: url("../images/read_more.png");background-repeat: no-repeat;
@@ -378,6 +378,10 @@ main.full_article_content{
 
 main p.bread_crumbs,main.full_article_content .bread_crumbs a{
     color: #9d9d9d;font-size: 12px;font-style: italic;
+}
+
+main.full_article_content p.bread_crumbs{
+    margin-bottom:2px;
 }
 
 
@@ -576,8 +580,6 @@ main#search_results_content .article_information{
 
 #avatar{
     display: inline-block;
-    margin-bottom: -50px;
-    margin-left: -125px;
     width: 120px;
 }
 /* end edit profile_content */

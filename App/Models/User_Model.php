@@ -26,6 +26,15 @@ class User_Model extends Abstract_Model
     }
 
     public function check_busy_login($login){
+        if(isset($_SESSION['auth']['user'])){
+            $user = $this->get_user($_SESSION['auth']['user']);
+            if($user){
+                if($user['login'] == $login){
+                    return false;
+                }
+            }
+        }
+
         $sql = "SELECT login FROM users WHERE login='$login'";
         $result = self::$db->prepared_select($sql);
         if($result){
@@ -35,6 +44,15 @@ class User_Model extends Abstract_Model
     }
 
     public function check_busy_email($email){
+        if(isset($_SESSION['auth']['user'])){
+            $user = $this->get_user($_SESSION['auth']['user']);
+            if($user){
+                if($user['mail'] == $email){
+                    return false;
+                }
+            }
+        }
+
         $sql = "SELECT mail FROM users WHERE mail='$email'";
         $result = self::$db->prepared_select($sql);
         if($result){
@@ -55,7 +73,6 @@ class User_Model extends Abstract_Model
         else{
             return false;
         }
-
     }
 
     public function is_auth(){
@@ -73,6 +90,18 @@ class User_Model extends Abstract_Model
     public function get_user($login){
         $sql = "SELECT * FROM users WHERE login='$login'"." AND activate=1";
         return self::$db->prepared_select($sql)[0];
+    }
+
+    public function change_avatar($user_id,$new_avatar_name){
+         self::$db->pdo_update('users',['avatar'],[$new_avatar_name],['id' => $user_id]);
+        Comments_Model::instance()->change_avatar($new_avatar_name,$user_id);
+    }
+
+    public function edit_profile($login,$email,$user_id){
+        if( self::$db->pdo_update('users',['login','mail'],[$login,$email],['id' => $user_id])){
+            $_SESSION['auth']['user'] = $login;
+        }
+
     }
 
 

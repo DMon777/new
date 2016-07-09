@@ -21,11 +21,11 @@ class Article_Controller extends Base_Controller
     protected function input($params = []){
         parent::input();
 
-        $this->scripts = ['jQuery','menu','auth','comments'];
-        $this->article_id = $params['id'];
-        $this->article = Articles_Model::instance()->get_article($this->article_id);
-        $this->title = $this->article['title'];
-        $this->keywords = $this->article['keywords'];
+        $this->scripts     = ['jQuery','menu','auth','comments'];
+        $this->article_id  = $params['id'];
+        $this->article     = Articles_Model::instance()->get_article($this->article_id);
+        $this->title       = $this->article['title'];
+        $this->keywords    = $this->article['keywords'];
         $this->description = $this->article['description'];
 
         Articles_Model::instance()->add_views($this->article_id,$this->article['quantity_views']);
@@ -35,17 +35,17 @@ class Article_Controller extends Base_Controller
         }
 
         if($_POST['send_comment']){
-            $this->parent_id = $_POST['parent_id'] ?? 0;
+            $this->parent_id    = $_POST['parent_id'] ?? 0;
             $this->text_comment = $this->clean_str($_POST['text_comment']);
-            Comments_Model::instance()->insert_comment($this->text_comment,$this->parent_id,$this->article_id,$this->user['login'],
-                            $this->user['avatar']);
+            Comments_Model::instance()->insert_comment($this->text_comment,$this->parent_id,$this->article_id,
+                $this->user['login'],$this->user['id'],$this->user['avatar']);
         }
 
         if($_POST['send_answer']){
-            $this->parent_id = $_POST['parent_id'];
+            $this->parent_id    = $_POST['parent_id'];
             $this->text_comment = $this->clean_str($_POST['answer_comment']);
-            Comments_Model::instance()->insert_comment($this->text_comment,$this->parent_id,$this->article_id,$this->user['login'],
-                $this->user['avatar']);
+            Comments_Model::instance()->insert_comment($this->text_comment,$this->parent_id,$this->article_id,
+                $this->user['login'],$this->user['id'],$this->user['avatar']);
         }
 
         $this->comments_map = Comments_Model::instance()->make_comments_tree($this->article_id);
@@ -61,7 +61,8 @@ class Article_Controller extends Base_Controller
 
         $this->content = $this->render([
             'article'  => $this->article,
-            'comments' => $this->comments
+            'comments' => $this->comments,
+            'user'     => $this->user
         ],
             'App/Views/blocks/article_content');
 

@@ -109,7 +109,7 @@ class Database_Model
     }
 
 
-    public function pdo_delete($table,$where = array(),$operand = array('=')){
+    public function pdo_delete($table,$where = [],$operand = ['=']){
 
         $sql = "DELETE FROM ".$table;
         if(is_array($where)) {

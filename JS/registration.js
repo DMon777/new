@@ -1,29 +1,25 @@
 $(document).ready(function(){
 
-   $("#login").bind('focusout',function(){
 
-       var login = $(this).val();
+    function check_login(login){
 
-       $.ajax({
-           url:'ajax/method/validate_login',
-           type:'post',
-           data:{login:login},
-           success:function(result){
-               if(result.length > 0){
-                   $(".login_error").text(result);
-               }
-               else{
-                   $(".login_error").text('');
-               }
-           }
-       });
-   });
+        $.ajax({
+            url:'ajax/method/validate_login',
+            type:'post',
+            data:{login:login},
+            success:function(result){
+                if(result.length > 0){
+                    $(".login_error").text(result);
+                }
+                else{
+                    $(".login_error").text('');
+                }
+            }
+        });
 
+    }
 
-    $("#email").bind('focusout',function(){
-
-        var email = $(this).val();
-
+    function check_email(email){
         $.ajax({
             url:'ajax/method/validate_email',
             type:'post',
@@ -37,6 +33,16 @@ $(document).ready(function(){
                 }
             }
         });
+    }
+
+
+   $("#login").bind('focusout',function(){
+       check_login($(this).val());
+   });
+
+
+    $("#email").bind('focusout',function(){
+       check_email($(this).val());
     });
 
     $("#password").bind('focusout',function(){
@@ -82,6 +88,14 @@ $(document).ready(function(){
                 }
             }
         });
+    });
+
+    $("#edit_login").bind('focusout',function(){
+        check_login($(this).val());
+    });
+
+    $("#edit_email").bind('focusout',function() {
+        check_email($(this).val());
     });
 
 

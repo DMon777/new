@@ -20,7 +20,6 @@ class Registration_Controller extends Base_Controller
     protected $headers;
     protected $registration_message;
 
-
     protected function input($params = []){
         parent::input();
 
@@ -71,8 +70,6 @@ class Registration_Controller extends Base_Controller
              $this->registration_message = "Ошибка при регистрации , попробуйте еще.";
              return false;
          }
-
-
 
 
         User_Model::instance()->reg_user($this->login,$this->password,$this->email,$this->rand_code);

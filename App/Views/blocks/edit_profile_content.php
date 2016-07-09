@@ -11,44 +11,36 @@
 
                             <tr>
                                 <td>
-                                    <input type="file" name="avatar" >
-                                    <img id="avatar" src="http://<?=SITE_NAME;?>/images/default-avatar.jpg">
+                                    <img id="avatar" src="http://<?=SITE_NAME;?>/images/avatars/<?=$user['avatar'];?>">
                                 </td>
-                                <td><span class = 'registration_error_message'>Сообщение об ошибке</span></td>
+                                <td><span class = 'registration_error_message avatar_error'></span></td>
                             </tr>
 
                             <tr>
                                 <td>
-                                    <input type="text" name="login" placeholder="Логин">
+                                    <input type="text" name="login" id="edit_login" value="<?=$user['login'];?>" >
                                 </td>
-                                <td><span class = 'registration_error_message'>Сообщение об ошибке</span></td>
+                                <td><span class = 'registration_error_message login_error'></span></td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" name="email" placeholder="Email">
+                                    <input type="text" name="email" id="edit_email" value = "<?=$user['mail'];?>">
                                 </td>
-                                <td><span class = 'registration_error_message'>Сообщение об ошибке</span></td>
+                                <td><span class = 'registration_error_message email_error'></span></td>
                             </tr>
+
                             <tr>
                                 <td>
-                                    <input type="password" name="password" placeholder="Пароль">
-                                </td>
-                                <td><span class = 'registration_error_message'>Сообщение об ошибке</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="password" name="confirm_password" placeholder="Повторите пароль">
-                                </td>
-                                <td><span class = 'registration_error_message'>Сообщение об ошибке</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="submit" name="registration" value="Применить" class="button">
+                                    <input type="submit" name="edit_profile" value="Применить" class="button">
                                 </td>
                             </tr>
 
                         </form>
                     </table>
+                    <?if($message):?>
+                        <p id="edit_profile_message"> <?=$message;?> </p>
+                    <?endif;?>
+
                 </div>
 
 

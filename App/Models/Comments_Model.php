@@ -15,9 +15,9 @@ class Comments_Model extends Abstract_Model
         return self::$instance = new self;
     }
 
-    public function insert_comment($text_comment,$parent_id,$article_id,$user_login,$avatar){
-        return self::$db->pdo_insert('comments',['parent_id','article_id','text_comment','user_login','avatar'],
-            [$parent_id,$article_id,$text_comment,$user_login,$avatar]);
+    public function insert_comment($text_comment,$parent_id,$article_id,$user_login,$user_id,$avatar){
+        return self::$db->pdo_insert('comments',['parent_id','article_id','text_comment','user_login','user_id','avatar'],
+            [$parent_id,$article_id,$text_comment,$user_login,$user_id,$avatar]);
     }
 
     public function make_comments_tree($article_id,$start = 0){
@@ -44,7 +44,7 @@ class Comments_Model extends Abstract_Model
 
                 <div class="comment">
                     <div class = "comments_left">
-                        <img src = "/images/default-avatar.jpg">
+                        <img src = "/images/avatars/<?=$val['avatar'];?>">
                         <p class="login"><?=$val['user_login'];?></p>
                     </div>
 
@@ -93,6 +93,10 @@ class Comments_Model extends Abstract_Model
         if($comment_child){
             $this->delete_comment($comment_child['comment_id']);
         }
+    }
+
+    public function change_avatar($new_avatar_name,$user_id){
+        self::$db->pdo_update('comments',['avatar'],[$new_avatar_name],['user_id' => $user_id]);
     }
 
 
