@@ -101,7 +101,16 @@ class User_Model extends Abstract_Model
         if( self::$db->pdo_update('users',['login','mail'],[$login,$email],['id' => $user_id])){
             $_SESSION['auth']['user'] = $login;
         }
+    }
 
+    public function get_login_by_email($email){
+        $sql = "SELECT login FROM users WHERE mail='$email'";
+        return self::$db->prepared_select($sql)[0];
+    }
+
+    public function update_password($login,$password){
+        $password = password_hash($password,PASSWORD_DEFAULT);
+        return self::$db->pdo_update('users',['password'],[$password],['login' => $login]);
     }
 
 
