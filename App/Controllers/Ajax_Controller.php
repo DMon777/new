@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Likes_Model;
 use App\Models\User_Model;
 class Ajax_Controller extends Base_Controller
 {
@@ -25,6 +26,9 @@ class Ajax_Controller extends Base_Controller
             break;
             case 'upload_avatar':
                 $this->upload_avatar();
+                break;
+            case 'add_like':
+                $this->add_like($_POST['article_id']);
                 break;
         }
     }
@@ -126,6 +130,16 @@ class Ajax_Controller extends Base_Controller
             exit(json_encode($result));
         }
 
+    }
+
+    public function add_like($id){
+        if(User_Model::instance()->is_auth()){
+            Likes_Model::instance()->add_like($id);
+            echo Likes_Model::instance()->count_likes($id);
+        }
+        else{
+            echo "Голосовать могут только авторизованные пользователи!";
+        }
     }
 
 

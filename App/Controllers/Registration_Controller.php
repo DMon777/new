@@ -25,7 +25,7 @@ class Registration_Controller extends Base_Controller
         parent::input();
 
         $this->title = "Регистрация";
-        $this->scripts = ['jQuery','menu','registration'];
+        $this->scripts = ['jQuery','menu','registration','jquery.tagcloud'];
 
         if($_POST['registration']){
             $this->registration();

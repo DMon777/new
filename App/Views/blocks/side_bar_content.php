@@ -13,11 +13,27 @@
             <img src="http://<?=SITE_NAME;?>/images/reklama3.jpg">
         </div>
 
+        <script type="text/javascript">
+
+
+            $.fn.tagcloud.defaults = {
+                size: {start: 12, end: 16, unit: 'px'},
+                color: {start: '#d1baf4', end: '#670bf3'}
+            };
+
+            $(function () {
+                $(".tags a").tagcloud();
+            });
+
+
+        </script>
+
         <div class = "tags_select">
             <h1>Выбор по тегам</h1>
-            <p class="tags">tags:
+            <p class="tags">
                 <?foreach($all_tags as $key => $val):?>
-                    <a href="http://<?=SITE_NAME;?>/tags/title/<?=$val['href'];?>"> <?=$val['title']?> </a> |
+                    <? $test_rand = rand(1,count($all_tags));?>
+                    <a rel="<?=$test_rand;?>" href="http://<?=SITE_NAME;?>/tags/title/<?=$val['href'];?>"> <?=$val['title']?> </a>&nbsp;
 
                 <?endforeach;?>
 

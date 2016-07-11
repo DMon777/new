@@ -22,11 +22,12 @@
                     <span class = "article_date">Дата:<?=date('d/m/Y',$val['publication_date']);?></span>
                     <p><?=$val['small_article'];?></p>
                     <div class = "article_information">
-
                         <ul>
 
                             <li>
-                                <img src="http://<?=SITE_NAME;?>/images/likes.png" alt="likes"><span><?=$val['count_likes']?></span>
+                                <input type="hidden" class = "article_id" value="<?=$val['id'];?>">
+                                <img src="http://<?=SITE_NAME;?>/images/likes.png" alt="likes" class="likes_img">
+                                <span class="count_likes"><?=$val['count_likes']?></span>
                             </li>
                             <li>
                                 <img src="http://<?=SITE_NAME;?>/images/count_rewiews.png" alt="rewiews"><span><?=$val['quantity_views']?></span>

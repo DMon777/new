@@ -23,7 +23,7 @@ abstract class Base_Controller extends Main_Controller
 
     protected function input($params = []){
             parent::input();
-        $this->scripts = ['jQuery','menu','auth'];
+        $this->scripts = ['jQuery','menu','auth','jquery.tagcloud'];
 
         $this->menu = Menu_Model::instance()->make_menu_tree();
 

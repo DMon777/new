@@ -21,7 +21,7 @@ class Article_Controller extends Base_Controller
     protected function input($params = []){
         parent::input();
 
-        $this->scripts     = ['jQuery','menu','auth','comments'];
+        $this->scripts     = ['jQuery','menu','auth','comments','jquery.tagcloud'];
         $this->article_id  = $params['id'];
         $this->article     = Articles_Model::instance()->get_article($this->article_id);
         $this->title       = $this->article['title'];

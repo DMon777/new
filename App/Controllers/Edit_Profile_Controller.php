@@ -17,7 +17,7 @@ class Edit_Profile_Controller extends Base_Controller
         parent::input();
 
         $this->title = "Редактировать профиль";
-        $this->scripts = ['jQuery','menu','auth','ajax_upload','upload','registration'];
+        $this->scripts = ['jQuery','menu','auth','ajax_upload','upload','registration','jquery.tagcloud'];
         $this->user = User_Model::instance()->get_user($_SESSION['auth']['user']);
 
         if($_POST['edit_profile']) {

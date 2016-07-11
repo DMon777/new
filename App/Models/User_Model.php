@@ -76,7 +76,7 @@ class User_Model extends Abstract_Model
     }
 
     public function is_auth(){
-        if(isset($_SESSION['auth']['login'])){
+        if(isset($_SESSION['auth']['user'])){
             return true;
         }
         return false;

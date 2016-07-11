@@ -69,6 +69,27 @@ $(document).ready(function() {
     })
 
 
+    $(".likes_img").bind('click',function(){
+
+        var article_id = $(this).siblings('.article_id').val();
+        var that = $(this);
+        $.ajax({
+            url:'/ajax/method/add_like',
+            type:'post',
+            data:{article_id:article_id},
+            success:function(result){
+                if(result == "Голосовать могут только авторизованные пользователи!"){
+                    alert(result);
+                }
+                else{
+                    that.siblings('.count_likes').html(result);
+                }
+
+            }
+
+        });
+    });
+
 
 });
 

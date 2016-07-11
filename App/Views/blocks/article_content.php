@@ -32,16 +32,21 @@
 
                 </p>
                 <img src="http://<?=SITE_NAME;?>/images/articles_images/<?=$article['image'];?>" class="full_article_header_image">
+                <span class = "article_date">Дата:<?=date('d/m/Y',$article['publication_date']);?></span>
                 <p><?=$article['full_article'];?></p>
 
                 <div class = "article_information">
-                    <span class = "article_date">Дата:<?=date('d/m/Y',$article['publication_date']);?></span>
+
                     <ul>
                         <li>
-                            <img src="/images/count_rewiews.png" class = "count_rewiews_img"><span><?=$article['quantity_views'];?></span>
+                            <input type="hidden" class = "article_id" value="<?=$article['id'];?>">
+                            <img src="/images/likes.png" class = "likes_img"><span class = 'count_likes'><?=$article['count_likes'];?></span>
+
+
                         </li>
+
                         <li>
-                            <img src="/images/likes.png" class = "likes_img"><span><?=$article['count_likes'];?></span>
+                            <img src="/images/count_rewiews.png" class = "count_rewiews_img"><span><?=$article['quantity_views'];?></span>
                         </li>
                     </ul>
                     <a href="<?=$_SERVER['HTTP_REFERER'];?>" class="read_more button">Вернуться обратно</a>

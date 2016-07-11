@@ -133,6 +133,10 @@ class Database_Model
         return $result->execute();
     }
 
+    public function last_id(){
+        return $this->pdo->lastInsertId();
+    }
+
 
 
 }
