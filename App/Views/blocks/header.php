@@ -20,7 +20,7 @@
 
             <a href="http://<?=SITE_NAME?>/index"> <img src="http://<?=SITE_NAME;?>/images/logo.png" alt="logo"> </a>
             <div id="social_icons">
-                <a href="#"> <img src="http://<?=SITE_NAME;?>/images/social_icon1.png" alt="social_icon"></a>
+                <a href="/rss"> <img src="http://<?=SITE_NAME;?>/images/social_icon1.png" alt="social_icon"></a>
                 <a href="#"> <img src="http://<?=SITE_NAME;?>/images/social_icon2.png" alt="social_icon"></a>
                 <a href="#"> <img src="http://<?=SITE_NAME;?>/images/social_icon3.png" alt="social_icon"></a>
             </div>
@@ -62,9 +62,6 @@
                     </div>
 
                 <?endif;?>
-
-
-
 
             </div>
 

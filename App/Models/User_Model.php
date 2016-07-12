@@ -21,8 +21,8 @@ class User_Model extends Abstract_Model
                                [$login,$password,$email,$code] );
     }
 
-    public function activate_user($code){
-        return self::$db->pdo_update('users',['code','activate'],['',1],['code' => $code]);
+    public function activate_user($code,$table){
+        return self::$db->pdo_update($table,['code','activate'],['',1],['code' => $code]);
     }
 
     public function check_busy_login($login){

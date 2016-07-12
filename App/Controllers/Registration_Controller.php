@@ -77,7 +77,7 @@ class Registration_Controller extends Base_Controller
 
 
         $this->email_message = "Вы подали заявку на регистрацию на сайте - ".SITE_NAME." ,для активации своего аккаунта
-                                перейдите по ссылке  -  http://".SITE_NAME."/activate/code/".$this->rand_code;
+                                перейдите по ссылке  -  http://".SITE_NAME."/activate/item/user/code/".$this->rand_code;
 
         Mail::send_mail($this->email,$this->subject,$this->email_message,$this->from);
         $this->registration_message = "На ваш почтовый ящик было отправлено письмо с ссылкой на подтверждение регистрации,проверьте почтовый ящик.";

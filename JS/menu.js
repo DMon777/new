@@ -2,11 +2,16 @@ $(document).ready(function() {
 
     $(".main_menu li").hover(function(){
 
-            $(this).children("ul").slideDown(200)},
-        function(){
-            $(this).children("ul").slideUp(300)
-        });
+            if($(this).children('ul').length > 0){
+                $(this).children('a').click(function(event){
+                    event.preventDefault();
+                })
+            }
 
+            $(this).children("ul").slideDown()},
+        function(){
+            $(this).children("ul").hide()
+        });
 
     $("#search input[type=text]").bind('click',function(){
         $(this).animate({
@@ -32,13 +37,6 @@ $(document).ready(function() {
             $(this).next().slideToggle(200);
         }
 
-   /*     if($(this).next().length == 0){
-            return true;
-        }
-        else{
-            event.preventDefault();
-            $(this).next().slideToggle(200);
-        }*/
     });
 
 
@@ -84,7 +82,6 @@ $(document).ready(function() {
                 else{
                     that.siblings('.count_likes').html(result);
                 }
-
             }
 
         });

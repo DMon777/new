@@ -8,52 +8,52 @@
             <div id="edit_profile_form">
                 <table>
                     <form method="post" action="#">
+                        <?if(isset($_SESSION['auth']['user'])):?>
+                        <p>Здравствуйте <?=$_SESSION['auth']['user'];?>, </p>
+                        <?else:?>
+                            <tr>
+                                <td>
+                                    <input type="text" name="name" placeholder="Имя">
+                                </td>
 
-                        <tr>
-                            <td>
-                                <input type="text" name="login" placeholder="Имя">
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="text" name="email" placeholder="Email"><br>
-                                <span class = 'registration_error_message'>Сообщение об ошибке</span>
-                            </td>
-                        </tr>
-
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="email" placeholder="Email"><br>
+                                </td>
+                            </tr>
+                        <?endif;?>
 
                         <tr>
                             <td>
                                 <p>выберите темы по которым хотите получать уведомления</p>
                             </td>
-
                         </tr>
 
-                        <tr>
-                            <td>
-                                <p><input type="checkbox"  value="big_tits"> Большая грудь</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p><input type="checkbox"  value="big_ass"> Большая попа</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p><input type="checkbox"  value="skinny"> Худенькие</p>
-                            </td>
-                        </tr>
+                        <?foreach($categories as $key => $val):?>
+
+                            <tr>
+                                <td>
+                                    <p><input type="checkbox" name="category[]" value="<?=$val['category_id']?>">
+                                        <?=$val['title_in_menu'];?></p>
+                                </td>
+                            </tr>
+
+                        <?endforeach;?>
 
                         <tr>
                             <td>
-                                <input type="submit" name="registration" value="Подписаться" class="button">
+                                <input type="submit" name="subscribe" value="Подписаться" class="button">
                             </td>
                         </tr>
 
                     </form>
                 </table>
+
+                <?if($message):?>
+                    <p><?=$message;?></p>
+                <?endif;?>
+
             </div>
         </article>
     </div><!--  end main -->

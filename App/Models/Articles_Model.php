@@ -69,5 +69,10 @@ class Articles_Model extends Abstract_Model
                    ['id' => $article_id] );
     }
 
+    public function get_all_articles(){
+        $sql = "SELECT * FROM articles ORDER BY id DESC LIMIT 10";
+        return self::$db->prepared_select($sql);
+    }
+
 
 }
