@@ -15,7 +15,6 @@
 
         </script>
 
-
         <article>
             <p class = "bread_crumbs">
 
@@ -55,7 +54,6 @@
             <?else:?>
             <p>Статья не найдена!</p>
             <?endif;?>
-
 
 
         </article>

@@ -99,5 +99,12 @@ class Comments_Model extends Abstract_Model
         self::$db->pdo_update('comments',['avatar'],[$new_avatar_name],['user_id' => $user_id]);
     }
 
+    public function get_user_by_comment_id($comment_id){
+        $sql = "SELECT user_login FROM comments WHERE comment_id=".$comment_id;
+        $result = self::$db->prepared_select($sql)[0];
+        $user = User_Model::instance()->get_user($result['user_login']);
+        return $user;
+    }
+
 
 }
