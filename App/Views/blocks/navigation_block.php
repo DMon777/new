@@ -1,42 +1,42 @@
 <div id="navigation">
     <div>
-        <table>
+               <table>
             <tr>
                 <? if($navigation['first']):?>
-                   <td> <a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['first'];?>">В начало</a></td>
+                    <td> <a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['first'];?>">В начало</a></td>
                 <?endif;?>
                 <? if($navigation['arrow_back']):?>
-                  <td>  <a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['arrow_back'];?>" class="arrow">
-                          <img src="http://<?=SITE_NAME;?>/images/arrow_back.png" alt="back">
-                      </a>
-                  </td>
+                    <td>  <a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['arrow_back'];?>" class="arrow">
+                            <img src="http://<?=SITE_NAME;?>/images/arrow_back.png" alt="back">
+                        </a>
+                    </td>
                 <?endif;?>
                 <? if($navigation['previous']):?>
                     <? foreach($navigation['previous'] as $val):?>
 
-                       <td> <a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$val;?>"><?=$val;?></a></td>
+                        <td> <a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$val;?>"><?=$val;?></a></td>
                     <? endforeach;?>
                 <? endif;?>
                 <? if($navigation['current']):?>
-                    <td><a href="#" class="current_page"><?=$navigation['current']?></a>
-                <? endif;?>
+                <td><a href="#" class="current_page"><?=$navigation['current']?></a>
+                    <? endif;?>
 
-                <? if($navigation['next']):?>
+                    <? if($navigation['next']):?>
                     <? foreach($navigation['next'] as $val):?>
                 <td><a href="http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$val;?>"><?=$val;?></a><td>
                     <? endforeach;?>
-                <? endif;?>
+                    <? endif;?>
 
-                <? if($navigation['arrow_forward']):?>
+                    <? if($navigation['arrow_forward']):?>
                 <td><a href = "http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['arrow_forward'];?>" class="arrow">
                         <img src="http://<?=SITE_NAME;?>/images/arrow_forward.png" alt="forvard">
                     </a>
                 <td>
-                <? endif;?>
+                    <? endif;?>
 
-                <? if($navigation['last_page']):?>
+                    <? if($navigation['last_page']):?>
                 <td><a href = "http://<?=SITE_NAME;?>/<?=$href;?>/page/<?=$navigation['last_page'];?>"> В конец </a></td>
-                <? endif;?>
+            <? endif;?>
 
             </tr>
         </table>

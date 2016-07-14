@@ -85,6 +85,31 @@ class Comments_Model extends Abstract_Model
         }
     }
 
+    public function print_admin_comments_map($map){
+        if(!empty($map)){
+            foreach($map as $val):?>
+                <ul class="comments_list">
+                    <li><?=$val['user_login'];?></li>
+                        <li><?=$val['text_comment'];?></li>
+                           <li>
+                               <a href = "" onclick="delete_comment(<?=$val['comment_id'];?>)">
+                                    <img src="/images/x.png" alt = "delete">
+                               </a>
+                           </li>
+                  <li> <? $this->print_admin_comments_map($val['children']); ?></li>
+                </ul>
+                <?php
+            endforeach;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+
+
+
 
     public function delete_comment($comment_id){
         self::$db->pdo_delete('comments',['comment_id'=>$comment_id]);

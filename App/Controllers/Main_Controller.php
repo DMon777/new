@@ -5,16 +5,18 @@ namespace App\Controllers;
 
 use App\Models\User_Model;
 
+
 abstract class Main_Controller
 {
 
     protected $params;
     protected $controller;
     protected $page;
+    protected $close = false;
 
 
     protected function input($params = []){
-
+        $this->close_page();
     }
 
     protected function output(){
@@ -76,6 +78,20 @@ abstract class Main_Controller
         return str_replace($rus, $lat, $str);
     }
 
+    protected function close_page(){
+        if($this->close){
+            if(!isset($_SESSION['auth']['user'])){
+                $this->redirect('http://'.SITE_NAME.'/index');
+                return false;
+            }
+            $user =  User_Model::instance()->get_user($_SESSION['auth']['user']);
+            if($user['role'] != "Administrator"){
+                $this->redirect('http://'.SITE_NAME.'/index');
+                return false;
+            }
+        }
+        return true;
+    }
 
 
 }

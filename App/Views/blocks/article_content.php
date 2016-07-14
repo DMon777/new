@@ -5,7 +5,7 @@
 
             function delete_comment(comment_id){
 
-                if(confirm("Вы действительно хотите удалить эту статью?")){
+                if(confirm("Вы действительно хотите удалить этот комментарий?")){
                     window.location='http://<?=SITE_NAME;?>/delete/item/comment/id/'+comment_id;
                 }
                 else{
@@ -18,7 +18,7 @@
         <article>
             <p class = "bread_crumbs">
 
-                <a href="">Главная</a><span>/<?=$article['title'];?></span>
+                <a href="/index">Главная</a><span>/<?=$article['title'];?></span>
 
             </p>
 

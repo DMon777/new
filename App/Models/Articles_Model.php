@@ -16,7 +16,7 @@ class Articles_Model extends Abstract_Model
     }
 
     public function get_tags($article_id){
-        $sql  = "SELECT title,href from tags JOIN articles_tags ON articles_tags.tag_id = tags.id WHERE articles_tags.article_id =".$article_id;
+        $sql  = "SELECT id,title,href from tags JOIN articles_tags ON articles_tags.tag_id = tags.id WHERE articles_tags.article_id =".$article_id;
         $result = self::$db->prepared_select($sql);
         return $result;
     }
@@ -72,6 +72,27 @@ class Articles_Model extends Abstract_Model
     public function get_all_articles(){
         $sql = "SELECT * FROM articles ORDER BY id DESC LIMIT 10";
         return self::$db->prepared_select($sql);
+    }
+
+    public function edit_article($headline,$key_words,$description,
+                                 $small_article,$full_article,$category,$image,$tags,$article_id){//добавить тэги
+
+     self::$db->pdo_update('articles',
+                            ['title','keywords','description','small_article','full_article','category','image'],
+                            [$headline,$key_words,$description,$small_article,$full_article,$category,$image],
+                            ['id' => $article_id] );
+
+        $this->edit_tags($tags,$article_id);
+
+    }
+
+    protected function edit_tags($tags,$article_id){
+        self::$db->pdo_delete('articles_tags',['article_id' => $article_id]);
+
+        for($i = 0;$i <= count($tags);$i++){
+            self::$db->pdo_insert('articles_tags',['article_id','tag_id'],[$article_id,$tags[$i]]);
+        }
+
     }
 
 
