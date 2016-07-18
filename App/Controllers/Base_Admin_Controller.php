@@ -11,6 +11,7 @@ class Base_Admin_Controller extends Main_Controller
     protected $content;
     protected $footer;
     protected $title;
+    protected $scripts;
     protected $close = true;
 
 
@@ -21,7 +22,7 @@ class Base_Admin_Controller extends Main_Controller
 
     protected function output(){
 
-        $this->header = $this->render(['title' => $this->title],'App/Views/blocks/admin_blocks/header');
+        $this->header = $this->render(['title' => $this->title,'scripts' => $this->scripts],'App/Views/blocks/admin_blocks/header');
 
         $this->side_bar = $this->render([],'App/Views/blocks/admin_blocks/sidebar');
 

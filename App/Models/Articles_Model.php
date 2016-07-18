@@ -95,5 +95,23 @@ class Articles_Model extends Abstract_Model
 
     }
 
+    public function add_article($headline,$key_words,$description,$small_article,
+                                $full_article,$category,$image,$tags){
+
+        self::$db->pdo_insert('articles',
+                    ['title','keywords','description','category','small_article','full_article','publication_date','image'],
+            [$headline,$key_words,$description,$category,$small_article,$full_article,time(),$image]
+            );
+
+        $article_id = self::$db->last_id();
+        Likes_Model::instance()->insert_like($article_id);
+
+        for($i = 0;$i <= count($tags);$i++){
+            self::$db->pdo_insert('articles_tags',['article_id','tag_id'],[$article_id,$tags[$i]]);
+        }
+
+    }
+
+
 
 }

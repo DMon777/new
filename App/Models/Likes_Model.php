@@ -72,4 +72,8 @@ class Likes_Model extends Abstract_Model
         return  self::$db->prepared_select($sql)[0]['like_id'];
     }
 
+    public function insert_like($article_id){
+        self::$db->pdo_insert('likes',['article_id'],[$article_id]);
+    }
+
 }
