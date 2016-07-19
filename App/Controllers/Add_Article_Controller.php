@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 
+use App\classes\Mail;
 use App\Models\Articles_Model;
 use App\Models\Category_Model;
 
@@ -30,10 +31,10 @@ class Add_Article_Controller extends Base_Admin_Controller
 
         if($_POST['add_article']){
 
-            $this->add_article();
+          if($this->add_article()){
+               $this->send_mail_to_subscribers();
+            }
         }
-
-
 
     }
 
@@ -45,7 +46,6 @@ class Add_Article_Controller extends Base_Admin_Controller
         ],'App/Views/blocks/admin_blocks/add_article_content');
 
         $this->page = parent::output();
-
     }
 
     protected function add_image(){
@@ -83,6 +83,22 @@ class Add_Article_Controller extends Base_Admin_Controller
             $this->small_article_text,$this->full_article_text,
             $this->article_category,$this->image,$this->article_tags
         );
+        return true;
+    }
+
+    protected function send_mail_to_subscribers(){
+
+        $emails = Category_Model::instance()->get_subscribers_emails();
+        $article_id = Articles_Model::instance()->get_last_article_id();
+        $from = "d.mon110kg@gmail.com";
+        $subject = "Рассылка";
+        $message = "На нашем сайте вышла новая статья -".$this->headline.".
+        перейдите по ссылке - http://".SITE_NAME."/article/id/".$article_id;
+
+        for($i = 0;$i < count($emails);$i++){
+            Mail::send_mail($emails[$i],$subject,$message,$from);
+            sleep(1);
+        }
     }
 
 

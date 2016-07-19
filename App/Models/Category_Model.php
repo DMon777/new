@@ -32,10 +32,26 @@ class Category_Model extends Abstract_Model
         }
     }
 
-
     public function get_categories(){
         $sql = "SELECT * FROM categories";
         return self::$db->prepared_select($sql);
     }
+
+    public function get_subscribers_emails(){
+        $category_id = Articles_Model::instance()->get_last_article_category();
+
+        $sql = "SELECT subscriber_id FROM categories_subscribe WHERE category_id=".$category_id;
+        $subscribers_id =  self::$db->prepared_select($sql);
+         $emails = [];
+        foreach($subscribers_id as $key => $val){
+            $sql = "SELECT email FROM subscribers WHERE id=".$val['subscriber_id']." AND activate = 1";
+            $result = self::$db->prepared_select($sql)[0]['email'];
+            $emails[] .= $result;
+        }
+        return $emails;
+    }
+
+
+
 
 }

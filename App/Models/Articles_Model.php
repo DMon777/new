@@ -112,6 +112,38 @@ class Articles_Model extends Abstract_Model
 
     }
 
+    public function get_last_article_category(){
+        $sql = "SELECT category FROM articles ORDER BY id DESC LIMIT 1";
+        return self::$db->prepared_select($sql)[0]['category'];
+    }
+
+    public function get_last_article_id(){
+        $sql = "SELECT id FROM articles ORDER BY id DESC LIMIT 1";
+        return self::$db->prepared_select($sql)[0]['id'];
+    }
+
+    public function delete_article($article_id){
+        $article = $this->get_article($article_id);
+        $image = 'images/articles_images/'.$article['image'];
+
+        if(file_exists($image)){
+            unlink($image);
+        }
+
+        self::$db->pdo_delete('articles',['id' => $article_id]);
+        self::$db->pdo_delete('articles_tags',['article_id' => $article_id]);
+        Comments_Model::instance()->delete_comment_by_article_id($article_id);
+        Likes_Model::instance()->delete_like_by_article_id($article_id);
+    }
+
+    public function add_new_tag($new_tag,$tag_href){
+        return self::$db->pdo_insert('tags',['title','href'],[$new_tag,$tag_href]);
+    }
+
+    public function delete_tag($tag_id){
+        self::$db->pdo_delete('tags',['id' => $tag_id]);
+    }
+
 
 
 }

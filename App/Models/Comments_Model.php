@@ -120,6 +120,10 @@ class Comments_Model extends Abstract_Model
         }
     }
 
+    public function delete_comment_by_article_id($article_id){
+        self::$db->pdo_delete('comments',['article_id' => $article_id]);
+    }
+
     public function change_avatar($new_avatar_name,$user_id){
         self::$db->pdo_update('comments',['avatar'],[$new_avatar_name],['user_id' => $user_id]);
     }

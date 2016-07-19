@@ -76,4 +76,9 @@ class Likes_Model extends Abstract_Model
         self::$db->pdo_insert('likes',['article_id'],[$article_id]);
     }
 
+    public function delete_like_by_article_id($article_id){
+        self::$db->pdo_delete('likers',['article_id' => $article_id]);
+        self::$db->pdo_delete('likes',['article_id' => $article_id]);
+    }
+
 }

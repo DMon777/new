@@ -31,6 +31,7 @@ class Article_Controller extends Base_Controller
 
         Articles_Model::instance()->add_views($this->article_id,$this->article['quantity_views']);
 
+
         if(isset($_SESSION['auth']['user'])){
             $this->user = User_Model::instance()->get_user($_SESSION['auth']['user']);
         }
