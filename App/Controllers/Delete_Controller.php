@@ -24,8 +24,6 @@ class Delete_Controller extends Base_Controller
            break;
         }
 
-
     }
-
 
 }

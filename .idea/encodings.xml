@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/App/Controllers/Edit_Category_Controller.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/App/Controllers/Edit_Tags_Controller.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/App/Views/blocks/admin_blocks/edit_category_content.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/App/Views/blocks/admin_blocks/edit_tags_content.php" charset="UTF-8" />
   </component>
 </project>

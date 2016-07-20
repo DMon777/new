@@ -34,4 +34,17 @@ class Menu_Model extends Abstract_Model
         return $map;
     }
 
+    public function get_categories(){
+        $sql = "SELECT * FROM menu WHERE parent_id > 0 ORDER BY sorting ASC";
+        return self::$db->prepared_select($sql);
+    }
+
+    public function category_sorting($sorting,$categories){
+
+        for($i = 0;$i < count($categories);$i++){
+            self::$db->pdo_update('menu',['sorting'],[$sorting[$i]],['id' => $categories[$i]['id']]);
+        }
+
+    }
+
 }

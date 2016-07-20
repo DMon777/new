@@ -71,3 +71,7 @@ html,body{
     margin-left:15px;
     list-style:none;
 }
+
+ol.sortable{
+    margin-left:10px;
+}

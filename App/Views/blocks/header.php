@@ -56,7 +56,6 @@
                     </div>
 
 
-
                     <div class="adaptive_auth">
                         <img src="http://<?=SITE_NAME;?>/images/login.png" id="auth_img" alt="auth">
                     </div>
