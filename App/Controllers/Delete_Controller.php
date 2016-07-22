@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 
 use App\Models\Articles_Model;
+use App\Models\Category_Model;
 use App\Models\Comments_Model;
 
 class Delete_Controller extends Base_Controller
@@ -21,6 +22,9 @@ class Delete_Controller extends Base_Controller
            break;
            case 'tag':
            Articles_Model::instance()->delete_tag($params['id']);
+           break;
+           case'category':
+           Category_Model::instance()->delete_category($params['title']);
            break;
         }
 

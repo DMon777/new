@@ -9,6 +9,7 @@
 namespace App\Controllers;
 
 
+use App\Models\Category_Model;
 use App\Models\Menu_Model;
 
 class Edit_Category_Controller extends Base_Admin_Controller
@@ -22,6 +23,10 @@ class Edit_Category_Controller extends Base_Admin_Controller
 
         if ($_POST['sort']) {
             Menu_Model::instance()->category_sorting($_POST['sorting'], Menu_Model::instance()->get_categories());
+        }
+
+        if($_POST['add_category']){
+            Category_Model::instance()->add_new_category($_POST['new_category'],$_POST['href']);
         }
 
         $this->categories = Menu_Model::instance()->get_categories();

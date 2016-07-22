@@ -2,10 +2,10 @@
 
 
     <script type="text/javascript">
-        function delete_tag(tag_id){
+        function delete_category(title){
 
-            if(confirm("Вы действительно хотите удалить этот тег?")){
-                window.location='http://<?=SITE_NAME;?>/delete/item/tag/id/'+tag_id;
+            if(confirm("Вы действительно хотите удалить эту категорию?")){
+                window.location='http://<?=SITE_NAME;?>/delete/item/category/title/'+title;
             }
             else{
                 return false;
@@ -31,12 +31,21 @@
                     ><?=$i;?> </option>
             <?endfor;?>
                 </select>
+                <a href = "" onclick="delete_category('<?=$val['title'];?>')"> Delete </a>
             </p>
         <?endforeach;?>
 
         <input type="submit" name="sort" value="sort">
     </form>
 
+    <h3>Добавить новую категорию:</h3>
+    <form method="post" action = "">
+      <label for="new_category"> Название категории -  </label>  <input type="text" name="new_category" ><br>
+      <label for="href"> ссылка -  </label>  <input type="text" name="href" ><br>
+
+        <input type="submit" name="add_category" value="добавить">
+
+    </form>
 
 </div>
 <div class = "clear"></div>

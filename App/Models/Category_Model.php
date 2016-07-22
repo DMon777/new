@@ -51,7 +51,26 @@ class Category_Model extends Abstract_Model
         return $emails;
     }
 
+    public function add_new_category($title,$href){
 
+        self::$db->pdo_insert('categories',['category_name','title_in_menu'],
+            [$href,$title]);
+        Menu_Model::instance()->add_category($title,$href);
+
+    }
+
+    public function delete_category($title){
+
+        $sql = "SELECT category_id FROM categories WHERE title_in_menu='$title'";
+        $category_id = self::$db->prepared_select($sql)[0]['category_id'];
+        if($category_id){
+            self::$db->pdo_delete('categories_subscribe',['category_id' => $category_id]);
+        }
+
+        self::$db->pdo_delete('categories',['title_in_menu' => $title]);
+        Menu_Model::instance()->delete_category($title);
+
+    }
 
 
 }

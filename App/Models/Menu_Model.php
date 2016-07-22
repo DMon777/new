@@ -20,7 +20,7 @@ class Menu_Model extends Abstract_Model
 
     public function make_menu_tree($start_level = 0){
 
-        $sql = "SELECT * FROM menu WHERE parent_id=".$start_level;
+        $sql = "SELECT * FROM menu WHERE parent_id=".$start_level." ORDER BY sorting ASC";
         $result = self::$db->prepared_select($sql);
 
         $map =[];
@@ -44,7 +44,17 @@ class Menu_Model extends Abstract_Model
         for($i = 0;$i < count($categories);$i++){
             self::$db->pdo_update('menu',['sorting'],[$sorting[$i]],['id' => $categories[$i]['id']]);
         }
-
     }
 
+    public function add_category($title,$href){
+
+        $num_sort = count($this->get_categories())+1;
+        $full_href = 'categories/id/'.$href;
+        self::$db->pdo_insert('menu',['title','href','parent_id','sorting'],
+            [$title,$full_href,2,$num_sort]);
+    }
+
+    public function delete_category($title){
+        self::$db->pdo_delete('menu',['title' => $title]);
+    }
 }

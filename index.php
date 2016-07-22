@@ -5,7 +5,7 @@ require_once "config.php";
 
 use App\Controllers\Route_Controller;
 use App\Controllers\Controller_Exception;
-//error_reporting(0);
+error_reporting(0);
 try{
     $controller =  Route_Controller::instance();
     $controller->route();
