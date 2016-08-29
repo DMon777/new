@@ -24,7 +24,7 @@ class Delete_Controller extends Base_Controller
            Articles_Model::instance()->delete_tag($params['id']);
            break;
            case'category':
-           Category_Model::instance()->delete_category($params['title']);
+           Category_Model::instance()->delete_category($params['id']);
            break;
         }
 

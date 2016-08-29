@@ -59,16 +59,18 @@ class Category_Model extends Abstract_Model
 
     }
 
-    public function delete_category($title){
+    public function delete_category($id){
 
-        $sql = "SELECT category_id FROM categories WHERE title_in_menu='$title'";
-        $category_id = self::$db->prepared_select($sql)[0]['category_id'];
+        $sql = "SELECT title FROM menu WHERE `id`=".$id;
+        $category_title = self::$db->prepared_select($sql)[0]['title'];
+        $sql2 = "SELECT category_id WHERE title_in_menu ='$category_title'";
+        $category_id = self::$db->prepared_select($sql2)[0]['category_id'];
         if($category_id){
             self::$db->pdo_delete('categories_subscribe',['category_id' => $category_id]);
         }
 
-        self::$db->pdo_delete('categories',['title_in_menu' => $title]);
-        Menu_Model::instance()->delete_category($title);
+        self::$db->pdo_delete('categories',['category_id' => $category_id]);
+        Menu_Model::instance()->delete_category($id);
 
     }
 

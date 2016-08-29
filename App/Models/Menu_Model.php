@@ -54,7 +54,7 @@ class Menu_Model extends Abstract_Model
             [$title,$full_href,2,$num_sort]);
     }
 
-    public function delete_category($title){
-        self::$db->pdo_delete('menu',['title' => $title]);
+    public function delete_category($id){
+        self::$db->pdo_delete('menu',['id' => $id]);
     }
 }

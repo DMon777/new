@@ -2,10 +2,10 @@
 
 
     <script type="text/javascript">
-        function delete_category(title){
+        function delete_category(id){
 
             if(confirm("Вы действительно хотите удалить эту категорию?")){
-                window.location='http://<?=SITE_NAME;?>/delete/item/category/title/'+title;
+                window.location='http://<?=SITE_NAME;?>/delete/item/category/id/'+id;
             }
             else{
                 return false;
@@ -15,6 +15,7 @@
     <h1>Редактировать категории</h1>
 
         <h3>Сортировка пунктов меню:</h3>
+
 
     <form method="post" action = "" class="form_sorting">
 
@@ -31,7 +32,7 @@
                     ><?=$i;?> </option>
             <?endfor;?>
                 </select>
-                <a href = "" onclick="delete_category('<?=$val['title'];?>')"> Delete </a>
+                <a href = "" onclick="delete_category('<?=$val['id'];?>')"> Delete </a>
             </p>
         <?endforeach;?>
 
